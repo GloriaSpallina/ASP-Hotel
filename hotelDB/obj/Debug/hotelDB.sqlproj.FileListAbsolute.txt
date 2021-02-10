@@ -1,0 +1,10 @@
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelDB.dacpac
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelDB.dll
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelDB.pdb
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelDB.sqlprojAssemblyReference.cache
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\Model.xml
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\refactor.xml
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\postdeploy.sql
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\predeploy.sql
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelDB.dll
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelDB.pdb
