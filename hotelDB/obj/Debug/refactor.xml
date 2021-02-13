@@ -147,4 +147,67 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IdUser" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="c01a6eec-6702-4fdd-9470-0e2c403ee507" ChangeDateTime="02/12/2021 16:38:09" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[TypeChambre].[IdCategorie]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TypeChambre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTypeChambre" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="618242cb-78e6-4c90-8034-b187ade518af" ChangeDateTime="02/12/2021 16:39:30" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[PhotoChambre].[IdChambre]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PhotoChambre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTypeChambre" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="45311142-e0b8-44ad-8083-b9e4adab68df" ChangeDateTime="02/12/2021 16:43:13" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[EquipementChambre].[IdEquipementChambre]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[EquipementChambre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdEquipementTypeChambre" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b80ea6ad-6925-451b-b06a-65cbf667869e" ChangeDateTime="02/12/2021 16:43:20" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[EquipementChambre].[IdChambre]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[EquipementChambre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTypeChambre" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5a9f641a-5a3d-4103-9c85-8aace44eaa0d" ChangeDateTime="02/12/2021 16:44:44" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Chambre].[IdCategorie]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Chambre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTypeChambre" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="98bc2adf-b759-461a-b6cd-097236dfb4c7" ChangeDateTime="02/12/2021 16:58:36" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[CompanyHotel].[Nome]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompanyHotel]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Nom" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="aa2c3358-676b-4322-a039-0d6e05db174b" ChangeDateTime="02/12/2021 17:07:17" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Hotel].[IdComapagnieHotel]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Hotel]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdCompanyHotel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6399734f-3841-4def-8785-162933d83630" ChangeDateTime="02/12/2021 17:07:43" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[CompanyHotel].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompanyHotel]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdCompanyHotel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9360299f-8465-4fe4-97ca-9b5784cce947" ChangeDateTime="02/13/2021 11:22:07" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[PhotoChambre].[IdPhotoChambre]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PhotoChambre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdPhotoTypeChambre" />
+  </Operation>
 </Operations>

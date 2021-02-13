@@ -1,0 +1,5 @@
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\HotelDataBase.dacpac
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelDB.dll
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelDB.pdb
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelDB.dll
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelDB.pdb

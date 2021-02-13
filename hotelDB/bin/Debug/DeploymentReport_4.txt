@@ -1,0 +1,47 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Créer
+       [dbo].[Admin] (Table)
+       [dbo].[Chambre] (Table)
+       [dbo].[Client] (Table)
+       [dbo].[CompanyHotel] (Table)
+       [dbo].[Equipement] (Table)
+       [dbo].[EquipementChambre] (Table)
+       [dbo].[Evaluation] (Table)
+       [dbo].[Facture] (Table)
+       [dbo].[Hotel] (Table)
+       [dbo].[Message] (Table)
+       [dbo].[PhotoChambre] (Table)
+       [dbo].[Reservation] (Table)
+       [dbo].[Service] (Table)
+       [dbo].[ServiceHotel] (Table)
+       [dbo].[TypeChambre] (Table)
+       [dbo].[User] (Table)
+       [dbo].[FK_Admin_ToHotel] (Clé étrangère)
+       [dbo].[FK_Admin_ToUser] (Clé étrangère)
+       [dbo].[FK_Chambre_ToHotel] (Clé étrangère)
+       [dbo].[FK_Chambre_ToTypeChambre] (Clé étrangère)
+       [dbo].[FK_Client_ToUser] (Clé étrangère)
+       [dbo].[FK_EquipementChambre_ToChambre] (Clé étrangère)
+       [dbo].[FK_EquipementChambre_ToEquipement] (Clé étrangère)
+       [dbo].[FK_Evaluation_ToChambre] (Clé étrangère)
+       [dbo].[FK_Evaluation_ToClient] (Clé étrangère)
+       [dbo].[FK_Facture_ToClient] (Clé étrangère)
+       [dbo].[FK_Hotel_ToCompagnieHotel] (Clé étrangère)
+       [dbo].[FK_Message_ToUser] (Clé étrangère)
+       [dbo].[FK_PhotoChambre_ToChambre] (Clé étrangère)
+       [dbo].[FK_Reservation_ToChambre] (Clé étrangère)
+       [dbo].[FK_Reservation_ToClient] (Clé étrangère)
+       [dbo].[FK_ServiceHotel_ToHotel] (Clé étrangère)
+       [dbo].[FK_ServiceHotel_ToService] (Clé étrangère)
+
+** Actions de support

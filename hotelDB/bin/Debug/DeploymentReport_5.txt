@@ -1,0 +1,19 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       [dbo].[CompanyHotel]
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Reconstruction de la table
+       [dbo].[CompanyHotel] (Table)
+
+** Actions de support
+     Supprimer
+       [dbo].[FK_Hotel_ToCompagnieHotel] (Clé étrangère)
+     Créer
+       [dbo].[FK_Hotel_ToCompagnieHotel] (Clé étrangère)

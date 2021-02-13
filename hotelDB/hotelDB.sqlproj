@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>hotelDB</Name>
+    <Name>HotelDb</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{eaf028c1-b5be-46f5-a74c-1fdbfa6a6e3a}</ProjectGuid>
@@ -22,6 +22,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetDatabase>HotelDataBase</TargetDatabase>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,5 +57,32 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\tables\User.sql" />
+    <Build Include="dbo\tables\Message.sql" />
+    <Build Include="dbo\tables\PhotoTypeChambre.sql" />
+    <Build Include="dbo\tables\Reservation.sql" />
+    <Build Include="dbo\tables\Service.sql" />
+    <Build Include="dbo\tables\ServiceHotel.sql" />
+    <Build Include="dbo\tables\Hotel.sql" />
+    <Build Include="dbo\tables\Facture.sql" />
+    <Build Include="dbo\tables\Evaluation.sql" />
+    <Build Include="dbo\tables\EquipementTypeChambre.sql" />
+    <Build Include="dbo\tables\Equipement.sql" />
+    <Build Include="dbo\tables\Client.sql" />
+    <Build Include="dbo\tables\Chambre.sql" />
+    <Build Include="dbo\tables\TypeChambre.sql" />
+    <Build Include="dbo\tables\Admin.sql" />
+    <Build Include="dbo\tables\CompanyHotel.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hotelDB.jfm" />
+    <None Include="hotelDB.sqlproj.user" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="hotelDB.refactorlog" />
   </ItemGroup>
 </Project>

@@ -9,22 +9,71 @@ namespace hotel
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-1.12.4.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            // Utilisez la version de développement de Modernizr pour le développement et l'apprentissage. Puis, une fois
-            // prêt pour la production, utilisez l'outil de génération à l'adresse https://modernizr.com pour sélectionner uniquement les tests dont vous avez besoin.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/css/bootstrap.min.css",
+                      "~/css/owl.carousel.min.css",
+                      "~/css/gijgo.css",
+                      "~/css/slicknav.css",
+                      "~/css/animate.min.css",
+                      "~/css/magnific-popup.css",
+                      "~/css/fontawesome-all.min.css",
+                      "~/css/themify-icons.css",
+                      "~/css/slick.css",
+                      "~/css/nice-select.css",
+                      "~/css/style.css",
+                      "~/css/responsive.css"));
+
+         
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                "~/js/vendor/modernizr-3.5.0.min.js"
+               ));
+            
+            bundles.Add(new ScriptBundle("~/bundles/magnificpopup").Include("~/js/jquery.magnific-popup.js"));
+
+
+
+            bundles.Add(new ScriptBundle("~/bundles/PropperBootstrap").Include(
+                "~/js/popper.min.js",
+               "~/js/bootstrap.min.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/bundles/MobileMenu").Include(
+               "~/js/jquery.slicknav.min.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/bundles/Carousel").Include(
+               "~/js/owl.carousel.min.js",
+               "~/js/slick.min.js",
+               "~/js/gijgo.min.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/bundles/AnimatedHeadline").Include(
+               "~/js/wow.min.js",
+               "~/js/animated.headline.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/bundles/ScrollNiceSticky").Include(
+               "~/js/jquery.scrollUp.min.js",
+               "~/js/jquery.nice-select.min.js",
+               "~/js/jquery.sticky.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/bundles/Contact").Include(
+               "~/js/contact.js",
+               "~/js/jquery.form.js",
+               "~/js/jquery.validate.min.js",
+               "~/js/mail-script.js",
+               "~/js/jquery.ajaxchimp.min.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/bundles/Main").Include(
+            "~/js/plugins.js",
+            "~/js/main.js"
+            ));
+
         }
     }
 }

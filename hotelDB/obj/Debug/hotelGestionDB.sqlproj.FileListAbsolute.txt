@@ -1,0 +1,6 @@
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelGestionDB.dacpac
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelDB.dll
+C:\Users\Glori\source\repos\hotel\hotelDB\bin\Debug\hotelDB.pdb
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelDB.dll
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelDB.pdb
+C:\Users\Glori\source\repos\hotel\hotelDB\obj\Debug\hotelGestionDB.sqlprojAssemblyReference.cache

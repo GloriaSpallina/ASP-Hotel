@@ -1,4 +1,5 @@
-﻿using System;
+﻿using hotel.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,37 @@ namespace hotel.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Your blog page.";
+
+            return View();
+        }
+        public ActionResult Element()
+        {
+            ViewBag.Message = "Your Element page.";
+
+            return View();
+        }
+        public ActionResult Rooms()
+        {
+            RoomsViewModel rvm = new RoomsViewModel();
+            ViewBag.Message = "Your rooms page.";
+
+            return View(rvm);
+        }
+        public ActionResult Services()
+        {
+            ViewBag.Message = "Your Services page.";
+
+            return View();
+        }
+        public ActionResult SingleBlog()
+        {
+            ViewBag.Message = "Your Single blog page.";
 
             return View();
         }
