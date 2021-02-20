@@ -84,3 +84,7 @@ C:\Users\Glori\source\repos\hotel\hotel\obj\Debug\hotel.csproj.CoreCompileInputs
 C:\Users\Glori\source\repos\hotel\hotel\obj\Debug\hotel.csproj.CopyComplete
 C:\Users\Glori\source\repos\hotel\hotel\obj\Debug\hotel.dll
 C:\Users\Glori\source\repos\hotel\hotel\obj\Debug\hotel.pdb
+C:\Users\Glori\source\repos\hotel\hotel\bin\Hotel.Models.dll
+C:\Users\Glori\source\repos\hotel\hotel\bin\Hotel.Repositories.dll
+C:\Users\Glori\source\repos\hotel\hotel\bin\Hotel.Models.pdb
+C:\Users\Glori\source\repos\hotel\hotel\bin\Hotel.Repositories.pdb

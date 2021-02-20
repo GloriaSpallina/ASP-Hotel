@@ -1,0 +1,16 @@
+﻿<aside class="single_sidebar_widget post_category_widget">
+    <h4 class="widget_title">Category</h4>
+    <ul class="list cat-list">
+        @foreach (hotel.Models.CategorieModel item in Model)
+        {
+
+            <li>
+                <a href="@item.Ref" class="d-flex">
+                    <p>@item.Nom</p>
+                    <p>(@item.NombreArticleCategorie)</p>
+                </a>
+            </li>
+        }
+
+    </ul>
+</aside>

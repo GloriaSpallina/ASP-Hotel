@@ -2430,7 +2430,7 @@ label {
     left: 0;
     margin: 0 auto; }
 
-.dining-area .single-dining-area {
+/*.dining-area .single-dining-area {
   position: relative;
   padding: 150px 0; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2473,7 +2473,7 @@ label {
       background-size: cover; }
       @media (max-width: 767px) {
         .dining-area .single-dining-area.right-img::before {
-          display: none; } }
+          display: none; } }*/
 
 .dining-area .dining-caption {
   background: rgba(252, 252, 252, 0.95);
@@ -2521,9 +2521,12 @@ label {
 
 .testimonial-area .testimonial-ratting {
   margin-bottom: 21px; }
-  .testimonial-area .testimonial-ratting i {
-    color: #FBBA42;
-    display: inline-block; }
+.testimonial-area .testimonial-ratting i {
+  display: inline-block; }
+.stars-yellow-custom {
+  color: #FBBA42;}
+.stars-grey-custom {
+   color: #6c757d;}
 
 .testimonial-area .rattiong-caption span {
   color: #112e41;

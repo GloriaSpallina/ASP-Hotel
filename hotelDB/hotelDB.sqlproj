@@ -77,6 +77,8 @@
     <Build Include="dbo\tables\TypeChambre.sql" />
     <Build Include="dbo\tables\Admin.sql" />
     <Build Include="dbo\tables\CompanyHotel.sql" />
+    <Build Include="dbo\tables\ArticleBlog.sql" />
+    <Build Include="dbo\tables\CommentaireArticle.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="hotelDB.jfm" />

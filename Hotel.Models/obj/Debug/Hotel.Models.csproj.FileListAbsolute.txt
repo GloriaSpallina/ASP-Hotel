@@ -1,0 +1,6 @@
+C:\Users\Glori\source\repos\hotel\Hotel.Models\bin\Debug\Hotel.Models.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Models\bin\Debug\Hotel.Models.pdb
+C:\Users\Glori\source\repos\hotel\Hotel.Models\obj\Debug\Hotel.Models.csprojAssemblyReference.cache
+C:\Users\Glori\source\repos\hotel\Hotel.Models\obj\Debug\Hotel.Models.csproj.CoreCompileInputs.cache
+C:\Users\Glori\source\repos\hotel\Hotel.Models\obj\Debug\Hotel.Models.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Models\obj\Debug\Hotel.Models.pdb

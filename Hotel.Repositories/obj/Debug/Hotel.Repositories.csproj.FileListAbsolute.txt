@@ -1,0 +1,13 @@
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\obj\Debug\Hotel.Repositories.csprojAssemblyReference.cache
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\obj\Debug\Hotel.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.Repositories.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.Repositories.pdb
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.DAL.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.Entities.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.Models.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.DAL.pdb
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.Entities.pdb
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\bin\Debug\Hotel.Models.pdb
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\obj\Debug\Hotel.Repositories.csproj.CopyComplete
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\obj\Debug\Hotel.Repositories.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Repositories\obj\Debug\Hotel.Repositories.pdb

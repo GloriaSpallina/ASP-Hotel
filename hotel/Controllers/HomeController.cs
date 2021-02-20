@@ -11,14 +11,16 @@ namespace hotel.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel hm = new HomeViewModel();
+            return View(hm);
         }
 
         public ActionResult About()
         {
+            AboutViewModel am = new AboutViewModel();
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View(am);
         }
 
         public ActionResult Contact()
@@ -29,16 +31,12 @@ namespace hotel.Controllers
         }
         public ActionResult Blog()
         {
+            BlogViewModel bm = new BlogViewModel();
             ViewBag.Message = "Your blog page.";
 
-            return View();
+            return View(bm);
         }
-        public ActionResult Element()
-        {
-            ViewBag.Message = "Your Element page.";
-
-            return View();
-        }
+    
         public ActionResult Rooms()
         {
             RoomsViewModel rvm = new RoomsViewModel();
@@ -48,15 +46,17 @@ namespace hotel.Controllers
         }
         public ActionResult Services()
         {
+            ServiceViewModel svm = new ServiceViewModel();
             ViewBag.Message = "Your Services page.";
 
-            return View();
+            return View(svm);
         }
         public ActionResult SingleBlog()
         {
+            SingleBlogViewModel sbm = new SingleBlogViewModel();
             ViewBag.Message = "Your Single blog page.";
 
-            return View();
+            return View(sbm);
         }
     }
 }

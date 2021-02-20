@@ -1,0 +1,85 @@
+﻿
+<style>
+    .dining-area .single-dining-area {
+        position: relative;
+        padding: 150px 0;
+    }
+
+    @@media only screen and (min-width: 768px) and (max-width: 991px) {
+        .dining-area .single-dining-area {
+            padding: 10px 0;
+        }
+    }
+
+    @@media only screen and (min-width: 576px) and (max-width: 767px) {
+        .dining-area .single-dining-area {
+            padding: 10px 0;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .dining-area .single-dining-area {
+            padding: 10px 0;
+        }
+    }
+</style>
+
+@foreach (hotel.Models.ServiceHotelModel item in Model)
+{
+    string valuesRadius = "0 5px 0 0";
+    if (item.OrientationPhoto == "left")
+    {
+        valuesRadius = "0 0 0 5px";
+    }
+    <style>
+
+  .dining-area .single-dining-area.@item.OrientationPhoto-img {
+    position: relative; }
+    .dining-area .single-dining-area.@item.OrientationPhoto-img::before {
+      position: absolute;
+      @item.OrientationPhoto : 0;
+      content: "";
+      top: 0;
+      bottom: 0;
+      background-image: url(../img/dining/@item.Photo);
+      width: 50%;
+      border-radius: @valuesRadius;
+      background-size: cover;
+      background-repeat: no-repeat; }
+      @@media (max-width: 767px) {
+        .dining-area .single-dining-area.@item.OrientationPhoto-img::before {
+          display: none; } }
+
+    </style>
+}
+
+
+
+<div class="dining-area dining-padding-top">
+    @foreach (hotel.Models.ServiceHotelModel item in Model)
+    {
+        string classe = "justify-content-end";
+        string classeText = "";
+        if (item.OrientationPhoto == "rigth")
+        {
+            classe = "justify-content-start";
+            classeText = "text-right";
+        }
+        <!-- Single Left et rigth img -->
+        <div class="single-dining-area @item.OrientationPhoto-img">
+            <div class="container">
+                <div class="row @classe">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="dining-caption @classeText">
+                            <span>@item.NomService</span>
+                            <h3>@item.CourteDescription</h3>
+                            <p>@item.LongueDescription</p>
+                            <a href="#" class="btn border-btn">Learn More <i class="ti-angle-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

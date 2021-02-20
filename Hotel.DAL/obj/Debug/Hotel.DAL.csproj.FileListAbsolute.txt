@@ -1,0 +1,6 @@
+C:\Users\Glori\source\repos\hotel\Hotel.DAL\bin\Debug\Hotel.DAL.dll
+C:\Users\Glori\source\repos\hotel\Hotel.DAL\bin\Debug\Hotel.DAL.pdb
+C:\Users\Glori\source\repos\hotel\Hotel.DAL\obj\Debug\Hotel.DAL.csprojAssemblyReference.cache
+C:\Users\Glori\source\repos\hotel\Hotel.DAL\obj\Debug\Hotel.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Glori\source\repos\hotel\Hotel.DAL\obj\Debug\Hotel.DAL.dll
+C:\Users\Glori\source\repos\hotel\Hotel.DAL\obj\Debug\Hotel.DAL.pdb
