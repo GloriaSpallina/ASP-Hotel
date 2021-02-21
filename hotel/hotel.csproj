@@ -127,19 +127,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutViewModel.cs" />
-    <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Models\BlogViewModel.cs" />
-    <Compile Include="Models\CategorieModel.cs" />
-    <Compile Include="Models\CommentaireModel.cs" />
-    <Compile Include="Models\CompagnyAboutModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
-    <Compile Include="Models\RoomCardModel.cs" />
     <Compile Include="Models\RoomsViewModel.cs" />
-    <Compile Include="Models\ServiceHotelModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\SingleBlogViewModel.cs" />
-    <Compile Include="Models\SliderModel.cs" />
-    <Compile Include="Models\TemoignageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

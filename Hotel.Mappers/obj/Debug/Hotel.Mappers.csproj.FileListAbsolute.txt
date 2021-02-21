@@ -1,0 +1,6 @@
+C:\Users\Glori\source\repos\hotel\Hotel.Mappers\bin\Debug\Hotel.Mappers.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Mappers\bin\Debug\Hotel.Mappers.pdb
+C:\Users\Glori\source\repos\hotel\Hotel.Mappers\obj\Debug\Hotel.Mappers.csprojAssemblyReference.cache
+C:\Users\Glori\source\repos\hotel\Hotel.Mappers\obj\Debug\Hotel.Mappers.csproj.CoreCompileInputs.cache
+C:\Users\Glori\source\repos\hotel\Hotel.Mappers\obj\Debug\Hotel.Mappers.dll
+C:\Users\Glori\source\repos\hotel\Hotel.Mappers\obj\Debug\Hotel.Mappers.pdb

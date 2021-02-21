@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Hotel.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +10,7 @@ namespace hotel.Models
     public class AboutViewModel
     {
         #region Fields
+        private UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         private CompagnyAboutModel _aboutC;
         private List<ServiceHotelModel> _serviceAbout;
         private List<SliderModel> _roomSliderAbout;
@@ -18,12 +21,7 @@ namespace hotel.Models
         public AboutViewModel()
         {
             //About Compagny
-            AboutC = new CompagnyAboutModel();
-            AboutC.Slogan = "Make the customer the hero of your story";
-            AboutC.DescriptionCourte = "Lorem ipsum dolor sit amet, consectetur adipisic- ing elit, sed do eiusmod tempor inc.";
-            AboutC.DescriptionLongue = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.";
-            AboutC.AnneeExpe = 25;
-            AboutC.Photo = "customar1.png";
+            AboutC = uow.GetInfoHotel();
            
 
             // partie testimonial
@@ -33,15 +31,10 @@ namespace hotel.Models
             TemoignageAbout.Add(new TemoignageModel() { Photo = "testimonial.png", Commentaire = "Yorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.", Nom = "Tutu, ", Fidelite = "New Client", Note = 2 });
 
             // Slider room 
-            RoomSliderAbout = new List<SliderModel>();
-            RoomSliderAbout.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery1.jpg" });
-            RoomSliderAbout.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery2.jpg" });
-            RoomSliderAbout.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery3.jpg" });
+            RoomSliderAbout =  uow.GetPhotoChambre(1);
 
             //Service
-            ServiceAbout = new List<ServiceHotelModel>();
-            ServiceAbout.Add(new ServiceHotelModel() { Photo = "dining-img.png", NomService = "Our resturent", CourteDescription = "Dining & Drinks", LongueDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br>veniam, quis nostrud.", OrientationPhoto = "left" });
-            ServiceAbout.Add(new ServiceHotelModel() { Photo = "dining-img2.png", NomService = "Our Pool", CourteDescription = "Swimming Pool", LongueDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br>veniam, quis nostrud.", OrientationPhoto = "right" });
+            ServiceAbout = uow.GetService();
         }
 
         #region Props

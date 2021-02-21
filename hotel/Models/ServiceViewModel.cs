@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Hotel.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +10,7 @@ namespace hotel.Models
     public class ServiceViewModel
     {
         #region Fields
+        private UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         private List<ServiceHotelModel> _services;
         private List<TemoignageModel> _temoignagesService;
         private List<SliderModel> _sliderRoomSer; 
@@ -22,15 +25,10 @@ namespace hotel.Models
             TemoignagesService.Add(new TemoignageModel() { Photo = "testimonial.png", Commentaire = "Yorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.", Nom = "youyou, ", Fidelite = "New Client", Note = 3 });
 
             // Slider room 
-            SliderRoomSer = new List<SliderModel>();
-            SliderRoomSer.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery1.jpg" });
-            SliderRoomSer.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery2.jpg" });
-            SliderRoomSer.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery3.jpg" });
+            SliderRoomSer = uow.GetPhotoChambre(1);
 
             //Service
-            Services = new List<ServiceHotelModel>();
-            Services.Add(new ServiceHotelModel() { Photo = "dining-img.png", NomService = "Our resturent", CourteDescription = "Dining & Drinks", LongueDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br>veniam, quis nostrud.", OrientationPhoto = "left" });
-            Services.Add(new ServiceHotelModel() { Photo = "dining-img2.png", NomService = "Our Pool", CourteDescription = "Swimming Pool", LongueDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br>veniam, quis nostrud.", OrientationPhoto = "right" });
+            Services = uow.GetService();
 
         }
 

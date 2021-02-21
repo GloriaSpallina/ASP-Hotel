@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Hotel.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +10,7 @@ namespace hotel.Models
     public class HomeViewModel
     {
         #region Fields
+        private UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         private CompagnyAboutModel _companyAbout;
         private List<RoomCardModel> _carteRoomHome;
         private List<ServiceHotelModel> _listeServices;
@@ -19,33 +22,19 @@ namespace hotel.Models
 
         public HomeViewModel()
         {
-            HeaderPhotoHotel = new List<SliderModel>();
-            HeaderPhotoHotel.Add(new SliderModel() { LienPhoto = "h1_hero.jpg" });
-            HeaderPhotoHotel.Add(new SliderModel() { LienPhoto = "h1_hero.jpg" });
-            HeaderPhotoHotel.Add(new SliderModel() { LienPhoto = "h1_hero.jpg" });
+            HeaderPhotoHotel = uow.GetPhotoHotel(1);
             //About Compagny
-            CompanyAbout = new CompagnyAboutModel();
-            CompanyAbout.Slogan = "Make the customer the hero of your story";
-            CompanyAbout.DescriptionCourte = "Lorem ipsum dolor sit amet, consectetur adipisic- ing elit, sed do eiusmod tempor inc.";
-            CompanyAbout.DescriptionLongue = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.";
-            CompanyAbout.AnneeExpe = 25;
-            CompanyAbout.Photo = "customar1.png";
+            CompanyAbout = uow.GetInfoHotel();
 
             //Carte chambres
 
             // carte chambre
-            CarteRoomHome = new List<RoomCardModel>();
-            CarteRoomHome.Add(new RoomCardModel() { PhotoChambre = "room1.jpg", NomCatégorie = "Classic Double Bed", Prix = 150 });
-            CarteRoomHome.Add(new RoomCardModel() { PhotoChambre = "room2.jpg", NomCatégorie = "Classic Double Bed", Prix = 400 });
-            CarteRoomHome.Add(new RoomCardModel() { PhotoChambre = "room3.jpg", NomCatégorie = "Classic Double Bed", Prix = 600 });
-            CarteRoomHome.Add(new RoomCardModel() { PhotoChambre = "room4.jpg", NomCatégorie = "Classic Double Bed", Prix = 40 });
-            CarteRoomHome.Add(new RoomCardModel() { PhotoChambre = "room5.jpg", NomCatégorie = "Classic Double Bed", Prix = 224 });
-            CarteRoomHome.Add(new RoomCardModel() { PhotoChambre = "room6.jpg", NomCatégorie = "Classic Double Bed", Prix = 147 });
+            CarteRoomHome = uow.GetCardHotel();
 
             // sercice Hotel
-            ListeServices = new List<ServiceHotelModel>();
-            ListeServices.Add(new ServiceHotelModel() { Photo = "dining-img.png", NomService = "Our resturent", CourteDescription = "Dining & Drinks", LongueDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br>veniam, quis nostrud.", OrientationPhoto= "left" });
-            ListeServices.Add(new ServiceHotelModel() { Photo = "dining-img2.png", NomService = "Our Pool", CourteDescription = "Swimming Pool", LongueDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br>veniam, quis nostrud.", OrientationPhoto = "right" });
+            ListeServices = uow.GetService();
+                
+          
 
             // partie testimonial
 
@@ -54,10 +43,7 @@ namespace hotel.Models
             Temoignages.Add(new TemoignageModel() { Photo = "testimonial.png", Commentaire = "Yorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.", Nom = "Mister Toto, ", Fidelite = "New Client", Note = 2 });
 
             // Slider room 
-            RoomSliderHome = new List<SliderModel>();
-            RoomSliderHome.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery1.jpg" });
-            RoomSliderHome.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery2.jpg" });
-            RoomSliderHome.Add(new SliderModel() { Ref = "#", LienPhoto = "gallery3.jpg" });
+            RoomSliderHome = uow.GetPhotoChambre(1);
 
             //carte blog
             CarteArticle = new List<ArticleModel>();

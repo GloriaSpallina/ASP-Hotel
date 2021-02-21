@@ -210,4 +210,53 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IdPhotoTypeChambre" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="9f9ba7c3-b5c5-484f-ad75-0831f4f122bf" ChangeDateTime="02/18/2021 09:05:21" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Blog].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Blog]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdBlog" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="66a9fcce-9846-48ad-a906-a1b4bfed6290" ChangeDateTime="02/18/2021 09:08:28" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Blog].[Artice]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Blog]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Article" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="71aa8d4a-0148-411d-80af-07bdbaba519e" ChangeDateTime="02/18/2021 09:12:37" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[ArticleBlog].[IdBlog]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ArticleBlog]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdArticleBlog" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f8a00360-d227-4280-9512-9fdef51fb7ee" ChangeDateTime="02/18/2021 09:12:47" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[ArticleBlog].[DescriptionCourte]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ArticleBlog]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Accroche" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="cba5dbf0-5b73-4115-ac4c-3fbebbbf205c" ChangeDateTime="02/18/2021 09:15:59" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[ArticleBlog].[Article]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ArticleBlog]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ContenuArticle" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ab96280d-3f26-43ec-8dc5-b22438cb2f12" ChangeDateTime="02/18/2021 09:17:50" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[CommentaireArticle].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CommentaireArticle]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdCommentaireArticle" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="514c024e-de65-4163-b09c-fc216b1bae43" ChangeDateTime="02/21/2021 11:38:29" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[HotelPhoto].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[HotelPhoto]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdHotelPhoto" />
+  </Operation>
 </Operations>

@@ -1,7 +1,11 @@
-﻿CREATE TABLE [dbo].[Service]
-(
-	[IdService] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [NomService] NVARCHAR(50) NOT NULL, 
-    [DescriptionCourte] NVARCHAR(150) NOT NULL, 
-    [DescriptionLongue] NVARCHAR(MAX) NOT NULL
-)
+﻿CREATE TABLE [dbo].[Service] (
+    [IdService]         INT            IDENTITY (1, 1) NOT NULL,
+    [NomService]        NVARCHAR (50)  NOT NULL,
+    [DescriptionCourte] NVARCHAR (150) NOT NULL,
+    [DescriptionLongue] NVARCHAR (MAX) NOT NULL,
+    [PhotoService]      NCHAR (250)    NULL,
+    [Orientation]       NCHAR (10)     NULL,
+    PRIMARY KEY CLUSTERED ([IdService] ASC)
+);
+
+

@@ -1,0 +1,23 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Modifier
+       [dbo].[User] (Table)
+     Créer
+       [dbo].[ArticleBlog] (Table)
+       [dbo].[CommentaireArticle] (Table)
+       [dbo].[HotelPhoto] (Table)
+       [dbo].[FK_ArticleBlog_ToHotel] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToUser] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToArticleBlog] (Clé étrangère)
+       [dbo].[FK_HotelPhoto_ToHotel] (Clé étrangère)
+
+** Actions de support
