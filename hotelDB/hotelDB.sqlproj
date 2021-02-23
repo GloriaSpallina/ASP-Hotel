@@ -59,6 +59,9 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\tables" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\FonctionScalaires" />
+    <Folder Include="dbo\ProcedureStockees" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\tables\User.sql" />
@@ -79,6 +82,16 @@
     <Build Include="dbo\tables\CompanyHotel.sql" />
     <Build Include="dbo\tables\ArticleBlog.sql" />
     <Build Include="dbo\tables\CommentaireArticle.sql" />
+    <Build Include="dbo\Views\V_Room.sql" />
+    <Build Include="dbo\tables\HotelPhoto.sql" />
+    <Build Include="dbo\Views\V_ArticleTop3.sql" />
+    <Build Include="dbo\Views\V_GetRandom.sql" />
+    <Build Include="dbo\tables\AuteurArticle.sql" />
+    <Build Include="dbo\tables\Theme.sql" />
+    <Build Include="dbo\tables\ThemeArticle.sql" />
+    <Build Include="dbo\FonctionScalaires\SF_EncryptePassword.sql" />
+    <Build Include="dbo\FonctionScalaires\SF_GenerateSalt.sql" />
+    <Build Include="dbo\ProcedureStockees\SP_CLIENT_INSERT.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="hotelDB.jfm" />

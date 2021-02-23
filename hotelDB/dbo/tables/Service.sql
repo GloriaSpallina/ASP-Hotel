@@ -3,9 +3,11 @@
     [NomService]        NVARCHAR (50)  NOT NULL,
     [DescriptionCourte] NVARCHAR (150) NOT NULL,
     [DescriptionLongue] NVARCHAR (MAX) NOT NULL,
-    [PhotoService]      NCHAR (250)    NULL,
-    [Orientation]       NCHAR (10)     NULL,
+    [PhotoService]      NVARCHAR (250) NULL,
+    [Orientation]       NVARCHAR (10)  NULL,
     PRIMARY KEY CLUSTERED ([IdService] ASC)
 );
+
+
 
 

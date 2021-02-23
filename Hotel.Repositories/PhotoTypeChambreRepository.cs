@@ -29,7 +29,7 @@ namespace Hotel.Repositories
         //Permet d'aller chercher les photo de toutes les  chambre d'un hotel
         public List<PhotoTypeChambreEntity> GetPhotoChambre(int idHotel)
         {
-            string requete = @"SELECT PhotoTypeChambre.LienPhoto
+            string requete = @"SELECT PhotoTypeChambre.Photo
                                FROM Hotel INNER JOIN
                                Chambre ON Hotel.IdHotel = Chambre.IdHotel INNER JOIN
                                TypeChambre ON Chambre.IdTypeChambre = TypeChambre.IdTypeChambre INNER JOIN

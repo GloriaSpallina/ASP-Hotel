@@ -27,7 +27,7 @@ namespace hotel.Models
 
             // slider photos chambres
 
-            RoomSlider = uow.GetPhotoChambre(1);
+            RoomSlider = uow.GetPhotoChambre();
         }
     }
 }

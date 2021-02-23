@@ -217,6 +217,12 @@
     <Content Include="img\gallery\gallery1.jpg" />
     <Content Include="img\gallery\gallery2.jpg" />
     <Content Include="img\gallery\gallery3.jpg" />
+    <Content Include="img\gallery\room1.jpg" />
+    <Content Include="img\gallery\room2.jpg" />
+    <Content Include="img\gallery\room3.jpg" />
+    <Content Include="img\gallery\room4.jpg" />
+    <Content Include="img\gallery\room5.jpg" />
+    <Content Include="img\gallery\room6.jpg" />
     <Content Include="img\gallery\video.png" />
     <Content Include="img\hero\aboutpage_hero.jpg" />
     <Content Include="img\hero\contact_hero.jpg" />

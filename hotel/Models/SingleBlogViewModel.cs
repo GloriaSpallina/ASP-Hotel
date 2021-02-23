@@ -35,7 +35,7 @@ namespace hotel.Models
                 DetailArticle.EvidenceTexte = "MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.";
                 DetailArticle.NombreLike1 = 5;
                 DetailArticle.NomLikeur = "Lily";
-                DetailArticle.Auteur = "Harvard milan";
+                DetailArticle.NomAuteur = "Harvard milan";
                 DetailArticle.PhototAuteur = "author.png";
                 DetailArticle.TextAuteur = "Second divided from form fish beast made. Every of seas all gathered use saying you're, he our dominion twon Second divided from";
             };

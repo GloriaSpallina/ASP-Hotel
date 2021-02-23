@@ -17,6 +17,7 @@ namespace Hotel.Repositories
         IConcreteRepository<CompanyHotelEntity> _infoHotelRepo;
         IConcreteRepository<ServiceEntity> _serviceRepo;
         IConcreteRepository<TypeChambreEntity> _typeChambreRepo;
+        IConcreteRepository<ArticleBlogEntity> _articleRepo;
         #endregion
 
         public UnitOfWork(string connectionString)
@@ -26,6 +27,7 @@ namespace Hotel.Repositories
             _infoHotelRepo = new CompanyHotelRepository(connectionString);
             _serviceRepo = new ServiceRepository(connectionString);
             _typeChambreRepo = new TypeChambreRepository(connectionString);
+            _articleRepo = new ArticleBlogRepository(connectionString);
         }
 
         public List<SliderModel> GetPhotoHotel(int idHotel)
@@ -33,9 +35,9 @@ namespace Hotel.Repositories
             return ((HotelPhotoRepository)_hotelPhotoRepo).GetPhotoHotel(idHotel).Select(item => new SliderModel() { LienPhoto = item.Photo }).ToList();
         }
 
-        public List<SliderModel> GetPhotoChambre(int idHotel)
+        public List<SliderModel> GetPhotoChambre()
         {
-            return ((PhotoTypeChambreRepository)_photoChambreRepo).GetPhotoChambre(idHotel).Select(item => new SliderModel() { LienPhoto = item.LienPhoto, Ref = "#" }).ToList();
+            return ((PhotoTypeChambreRepository)_photoChambreRepo).Get().Select(item => new SliderModel() { LienPhoto = item.Photo, Ref = "#" }).ToList();
         }
 
         public CompagnyAboutModel GetInfoHotel()
@@ -64,7 +66,23 @@ namespace Hotel.Repositories
                 {
                     NomCategorie = item.Nom,
                     Prix = item.Prix,
-                    PhotoChambre = item.LienPhoto
+                    PhotoChambre = item.Photo
+                }
+                ).ToList();
+        }
+
+        public List<ArticleModel> GetCardArticleTop()
+        {
+            return _articleRepo.Get()
+                .Select(item =>
+                new ArticleModel()
+                {
+                    Photo = item.Photo,
+                    NomAuteur = item.Nom,
+                    PrenomAuteur = item.Prenom,
+                    Titre = item.Titre,
+                    DateArticle = item.Date,
+                    NombreCommentaire = item.NBComment
                 }
                 ).ToList();
         }

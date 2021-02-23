@@ -189,19 +189,19 @@
                         <!-- Single Blog -->
                         <div class="single-blog mb-30">
                             <div class="blog-img">
-                                <a href="@item.LienArticle"><img src="/img/our_blog/@item.Photo" alt=""></a>
+                                <a href="@item.LienArticle"><img src="/img/blog/@item.Photo" alt=""></a>
                             </div>
                             <div class="blog-caption">
                                 <div class="blog-cap-top d-flex justify-content-between mb-40">
                                     <span>news</span>
-                                    <ul><li>by<a href="#"> @item.Auteur</a></li></ul>
+                                    <ul><li>by<a href="#"> @item.NomAuteur @item.PrenomAuteur</a></li></ul>
                                 </div>
                                 <div class="blog-cap-mid">
                                     <p><a href="@item.LienArticle">@item.Titre</a></p>
                                 </div>
                                 <!-- Comments -->
                                 <div class="blog-cap-bottom d-flex justify-content-between">
-                                    <span>@item.DateArticle</span>
+                                    <span>@item.DateArticle.ToString("MMM dd, yyyy")</span>
                                     <span><img src="/img/our_blog/blog-comments-icon.jpg" alt="">@item.NombreCommentaire</span>
                                 </div>
                             </div>

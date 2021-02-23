@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleBlogRepository.cs" />
     <Compile Include="CompanyHotelRepository.cs" />
     <Compile Include="HotelPhotoRepository.cs" />
     <Compile Include="PhotoTypeChambreRepository.cs" />

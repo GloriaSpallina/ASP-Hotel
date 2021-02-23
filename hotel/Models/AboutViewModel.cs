@@ -31,7 +31,7 @@ namespace hotel.Models
             TemoignageAbout.Add(new TemoignageModel() { Photo = "testimonial.png", Commentaire = "Yorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.", Nom = "Tutu, ", Fidelite = "New Client", Note = 2 });
 
             // Slider room 
-            RoomSliderAbout =  uow.GetPhotoChambre(1);
+            RoomSliderAbout =  uow.GetPhotoChambre();
 
             //Service
             ServiceAbout = uow.GetService();

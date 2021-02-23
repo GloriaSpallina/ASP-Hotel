@@ -43,13 +43,11 @@ namespace hotel.Models
             Temoignages.Add(new TemoignageModel() { Photo = "testimonial.png", Commentaire = "Yorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.", Nom = "Mister Toto, ", Fidelite = "New Client", Note = 2 });
 
             // Slider room 
-            RoomSliderHome = uow.GetPhotoChambre(1);
+            RoomSliderHome = uow.GetPhotoChambre();
 
             //carte blog
-            CarteArticle = new List<ArticleModel>();
-            CarteArticle.Add(new ArticleModel() { Photo = "blog-img1.jpg", LienArticle = "/Home/SingleBlog", Auteur = "John Guru", Titre = "5 Simple Tricks for Getting Stellar Hotel Service Wherever You Are", NombreCommentaire = 4, DateArticle = new DateTime(2021, 02, 10) });
-            CarteArticle.Add(new ArticleModel() { Photo = "blog-img2.jpg", LienArticle= "/Home/SingleBlog", Auteur = "Toto Titi", Titre = "5 Simple Tricks for Getting Stellar Hotel Service Wherever You Are", NombreCommentaire = 3, DateArticle = new DateTime(2021, 02, 20) });
-            CarteArticle.Add(new ArticleModel() { Photo = "blog-img3.jpg", LienArticle = "/Home/SingleBlog", Auteur = "Toto Titi", Titre = "5 Simple Tricks for Getting Stellar Hotel Service Wherever You Are", NombreCommentaire = 3, DateArticle = new DateTime(2021, 02, 20) });
+        
+            CarteArticle = uow.GetCardArticleTop();
 
         }
 

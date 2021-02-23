@@ -1,0 +1,18 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Créer
+       [dbo].[V_GetRandom] (Vue)
+       [dbo].[SF_EncryptedPassword] (Fonction)
+       [dbo].[SF_GenerateSalt] (Fonction)
+       [dbo].[SP_CLIENT_Insert] (Procédure)
+
+** Actions de support

@@ -259,4 +259,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IdHotelPhoto" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="41438fbb-c040-4f78-9430-82c5d68591e0" ChangeDateTime="02/23/2021 09:39:08">
+    <Property Name="ElementName" Value="[dbo].[AuteurArticle].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AuteurArticle]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdAuteurArticle" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="98eb2bdb-2edb-47e7-bdcf-5fd21b3c22e2" ChangeDateTime="02/23/2021 09:54:49">
+    <Property Name="ElementName" Value="[dbo].[Theme].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Theme]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTheme" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d4109757-dbdc-4251-83cb-bbaeab6a5cf8" ChangeDateTime="02/23/2021 09:55:43">
+    <Property Name="ElementName" Value="[dbo].[ThemeArticle].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ThemeArticle]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdThemeArticle" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="aefb7a48-3b66-46b6-9752-111ebfddabc6" ChangeDateTime="02/23/2021 10:00:57">
+    <Property Name="ElementName" Value="[dbo].[Theme].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Theme]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdTheme" />
+  </Operation>
 </Operations>

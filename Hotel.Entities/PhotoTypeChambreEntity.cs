@@ -9,10 +9,10 @@ namespace Hotel.Entities
     public class PhotoTypeChambreEntity
     {
         private int _idPhotoTypeChambre, _idTypeChambre;
-        private string _lienPhoto;
+        private string _Photo;
 
         public int IdPhotoTypeChambre { get => _idPhotoTypeChambre; set => _idPhotoTypeChambre = value; }
         public int IdTypeChambre { get => _idTypeChambre; set => _idTypeChambre = value; }
-        public string LienPhoto { get => _lienPhoto; set => _lienPhoto = value; }
+        public string Photo { get => _Photo; set => _Photo = value; }
     }
 }
