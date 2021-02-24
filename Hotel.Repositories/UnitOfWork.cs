@@ -1,6 +1,7 @@
 ﻿using hotel.Models;
 using Hotel.DAL.Repositories;
 using Hotel.Entities;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace Hotel.Repositories
         IConcreteRepository<ServiceEntity> _serviceRepo;
         IConcreteRepository<TypeChambreEntity> _typeChambreRepo;
         IConcreteRepository<ArticleBlogEntity> _articleRepo;
+        IConcreteRepository<MessageEntity> _messageRepo;
+        IConcreteRepository<ThemeEntity> _themeRepo;
+       
         #endregion
 
         public UnitOfWork(string connectionString)
@@ -28,6 +32,8 @@ namespace Hotel.Repositories
             _serviceRepo = new ServiceRepository(connectionString);
             _typeChambreRepo = new TypeChambreRepository(connectionString);
             _articleRepo = new ArticleBlogRepository(connectionString);
+            _messageRepo = new MessageRepository(connectionString);
+            _themeRepo = new ThemeRepository(connectionString);
         }
 
         public List<SliderModel> GetPhotoHotel(int idHotel)
@@ -86,5 +92,48 @@ namespace Hotel.Repositories
                 }
                 ).ToList();
         }
+
+        public List<ArticleModel> GetResumeArticle()
+        {
+            return ((ArticleBlogRepository)_articleRepo).GetResume()
+                .Select(item =>
+                new ArticleModel()
+                {
+                    Photo = item.Photo,
+                    DateArticle = item.Date,
+                    Titre = item.Titre,
+                    Resume = item.Accroche,
+                    Categorie = item.Themes,
+                    NombreCommentaire = item.NBComment
+                    
+                }
+                ).ToList();
+
+        }
+
+        public List<CategorieModel> GetCloudTag()
+        {
+            return _themeRepo.Get()
+                .Select(l =>
+                new CategorieModel()
+                {
+                    Nom = l.Libelle
+                }
+                ).ToList();
+        }
+
+        #region Contact
+        public bool SaveContact(ContactModel cm)
+        {
+            //MAppers
+            MessageEntity me = new MessageEntity();
+            me.Nom = cm.Nom;
+            me.Email = cm.Email;
+            me.Sujet = cm.Subject;
+            me.ContenuMail = cm.Message;
+
+            return _messageRepo.Insert(me);
+        }
+        #endregion
     }
 }

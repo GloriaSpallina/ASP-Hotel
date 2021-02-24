@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Hotel.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -13,16 +15,13 @@ namespace hotel.Models
         private List<ArticleModel> _recentPost;
         private List<CategorieModel> _tagCloud;
         private List<ArticleModel> _instaPost;
+        private UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         #endregion
         public BlogViewModel()
         {
             // aperçu article
-            ArticleBlog = new List<ArticleModel>();
-            ArticleBlog.Add(new ArticleModel() { Photo = "single_blog_1.png", DateArticle = new DateTime(2021, 01, 15), Titre = "Google inks pact for new 35-storey office", Resume = "That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.", Categorie = "Travel, Lifestyle", NombreCommentaire = 3 });
-            ArticleBlog.Add(new ArticleModel() { Photo = "single_blog_2.png", DateArticle = new DateTime(2021, 01, 10), Titre = "Google inks pact for new 35-storey office", Resume = "That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.", Categorie = "Travel, Lifestyle", NombreCommentaire = 2 });
-            ArticleBlog.Add(new ArticleModel() { Photo = "single_blog_3.png", DateArticle = new DateTime(2021, 01, 01), Titre = "Google inks pact for new 35-storey office", Resume = "That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.", Categorie = "Travel, Lifestyle", NombreCommentaire = 10 });
-            ArticleBlog.Add(new ArticleModel() { Photo = "single_blog_4.png", DateArticle = new DateTime(2020, 12, 16), Titre = "Google inks pact for new 35-storey office", Resume = "That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.", Categorie = "Travel, Lifestyle", NombreCommentaire = 4 });
-            ArticleBlog.Add(new ArticleModel() { Photo = "single_blog_5.png", DateArticle = new DateTime(2020, 12, 15), Titre = "Google inks pact for new 35-storey office", Resume = "That dominion stars lights dominion divide years for fourth have don't stars is that he earth it first without heaven in place seed it second morning saying.", Categorie = "Travel, Lifestyle", NombreCommentaire = 1 });
+            ArticleBlog = uow.GetResumeArticle();
+         
 
             // Nombre d'artcile par catégorie
             ListeCategories = new List<CategorieModel>();
@@ -41,15 +40,16 @@ namespace hotel.Models
             RecentPost.Add(new ArticleModel() { LienArticle = "/Home/SingleBlog", Photo = "post_4.png", Titre = "Asteroids telescope", DateArticle = new DateTime(2019, 01, 12) });
 
             //tag Cloud
-            TagCloud = new List<CategorieModel>();
-            TagCloud.Add(new CategorieModel(){ Nom="project", Ref="#"});
-            TagCloud.Add(new CategorieModel() { Nom = "love", Ref = "#" });
-            TagCloud.Add(new CategorieModel() { Nom = "technology", Ref = "#" });
-            TagCloud.Add(new CategorieModel() { Nom = "travel", Ref = "#" });
-            TagCloud.Add(new CategorieModel() { Nom = "restaurant", Ref = "#" });
-            TagCloud.Add(new CategorieModel() { Nom = "life style", Ref = "#" });
-            TagCloud.Add(new CategorieModel() { Nom = "design", Ref = "#" });
-            TagCloud.Add(new CategorieModel() { Nom = "illustration", Ref = "#" });
+            TagCloud = uow.GetCloudTag();
+            //TagCloud = new List<CategorieModel>();
+            //TagCloud.Add(new CategorieModel(){ Nom="project", Ref="#"});
+            //TagCloud.Add(new CategorieModel() { Nom = "love", Ref = "#" });
+            //TagCloud.Add(new CategorieModel() { Nom = "technology", Ref = "#" });
+            //TagCloud.Add(new CategorieModel() { Nom = "travel", Ref = "#" });
+            //TagCloud.Add(new CategorieModel() { Nom = "restaurant", Ref = "#" });
+            //TagCloud.Add(new CategorieModel() { Nom = "life style", Ref = "#" });
+            //TagCloud.Add(new CategorieModel() { Nom = "design", Ref = "#" });
+            //TagCloud.Add(new CategorieModel() { Nom = "illustration", Ref = "#" });
 
             //insta
 

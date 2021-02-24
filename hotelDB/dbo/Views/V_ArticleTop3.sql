@@ -1,10 +1,11 @@
 ﻿CREATE VIEW dbo.V_ArticleTop3
 AS
-SELECT TOP (3) dbo.ArticleBlog.Titre, COUNT(*) AS NBComment, dbo.ArticleBlog.Photo, dbo.ArticleBlog.Date, dbo.AuteurArticle.Nom, dbo.AuteurArticle.Prenom
+SELECT TOP (3) dbo.ArticleBlog.Titre, dbo.ArticleBlog.Photo, dbo.ArticleBlog.Date, dbo.AuteurArticle.Nom, dbo.AuteurArticle.Prenom,
+                      (SELECT COUNT(*) AS Expr1
+                       FROM      dbo.CommentaireArticle
+                       WHERE   (dbo.ArticleBlog.IdArticleBlog = IdArticleBlog)) AS NBComment
 FROM     dbo.ArticleBlog LEFT OUTER JOIN
-                  dbo.CommentaireArticle ON dbo.ArticleBlog.IdArticleBlog = dbo.CommentaireArticle.IdArticleBlog LEFT OUTER JOIN
                   dbo.AuteurArticle ON dbo.ArticleBlog.IdAuteurArticle = dbo.AuteurArticle.IdAuteurArticle
-GROUP BY dbo.ArticleBlog.Titre, dbo.ArticleBlog.Photo, dbo.ArticleBlog.Date, dbo.AuteurArticle.Nom, dbo.AuteurArticle.Prenom
 ORDER BY dbo.ArticleBlog.Date DESC
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'V_ArticleTop3';
@@ -16,7 +17,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+         Configuration = "(H (1[25] 4[36] 2[20] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -92,16 +93,6 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 9
          End
-         Begin Table = "CommentaireArticle"
-            Begin Extent = 
-               Top = 7
-               Left = 291
-               Bottom = 170
-               Right = 532
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
          Begin Table = "AuteurArticle"
             Begin Extent = 
                Top = 7
@@ -121,7 +112,7 @@ Begin DesignProperties =
       End
    End
    Begin CriteriaPane = 
-      Begin ColumnWidths = 12
+      Begin ColumnWidths = 11
          Column = 1440
          Alias = 900
          Table = 1176
@@ -130,7 +121,7 @@ Begin DesignProperties =
          NewValue = 1170
          SortType = 1356
          SortOrder = 1416
-         GroupBy = 1350
+         GroupBy = 1356
          Filter = 1356
          Or = 1350
          Or = 1350
@@ -139,4 +130,6 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'V_ArticleTop3';
+
+
 

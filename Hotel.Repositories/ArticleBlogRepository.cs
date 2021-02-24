@@ -18,7 +18,13 @@ namespace Hotel.Repositories
 
         public List<ArticleBlogEntity> Get()
         {
-            string requete = @"SELECT * FROM V_ArticleTop3";
+            string requete = "SELECT * FROM V_ArticleTop3";
+            return base.Get(requete);
+        }
+
+        public List<ArticleBlogEntity> GetResume()
+        {
+            string requete = "SELECT * FROM V_ArticleThemes";
             return base.Get(requete);
         }
 
