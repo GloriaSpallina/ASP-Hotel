@@ -83,11 +83,12 @@ namespace hotel.Controllers
         //    }
         //}
 
-        public ActionResult Blog()
+        public ActionResult Blog(string searchTheme = null, string searchString = null, int page = 1)
         {
-            BlogViewModel bm = new BlogViewModel();
             ViewBag.Message = "Your blog page.";
 
+            BlogViewModel bm = new BlogViewModel();
+            bm.paginateResumeArticle(searchTheme, searchString, page);
             return View(bm);
         }
     

@@ -15,23 +15,24 @@ namespace hotel.Models
         private List<ArticleModel> _recentPost;
         private List<CategorieModel> _tagCloud;
         private List<ArticleModel> _instaPost;
+        private int _maxArticle, _maxPage;
         private UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         #endregion
         public BlogViewModel()
         {
             // aperçu article
-            ArticleBlog = uow.GetResumeArticle();
-         
+
+
 
             // Nombre d'artcile par catégorie
-            ListeCategories = new List<CategorieModel>();
-            ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Resaurant food", NombreArticleCategorie = 37 });
-            ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Travel news", NombreArticleCategorie = 10 });
-            ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Modern technology", NombreArticleCategorie = 3 });
-            ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Product", NombreArticleCategorie = 11 });
-            ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Inspiration", NombreArticleCategorie = 21 });
-            ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Health care", NombreArticleCategorie = 14 });
-
+            //ListeCategories = new List<CategorieModel>();
+            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Resaurant food", NombreArticleCategorie = 37 });
+            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Travel news", NombreArticleCategorie = 10 });
+            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Modern technology", NombreArticleCategorie = 3 });
+            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Product", NombreArticleCategorie = 11 });
+            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Inspiration", NombreArticleCategorie = 21 });
+            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Health care", NombreArticleCategorie = 14 });
+            ListeCategories = uow.GetCategoryAndNbArt();
             //recent poste
             RecentPost = new List<ArticleModel>();
             RecentPost.Add(new ArticleModel() { LienArticle= "/Home/SingleBlog", Photo = "post_1.png", Titre="From life was fish...", DateArticle = new DateTime(2019,01,12) });
@@ -61,6 +62,19 @@ namespace hotel.Models
             InstaPost.Add(new ArticleModel() { Photo = "post_9.png", LienArticle = "#" });
             InstaPost.Add(new ArticleModel() { Photo = "post_10.png", LienArticle = "#" });
 
+            MaxArticle = uow.CountArticles();
+            MaxPage = MaxArticle / 5;
+
+        }
+
+        public void paginateResumeArticle(string searchTheme = null, string searchString = null, int page = 1)
+        {
+            ArticleBlog = uow.GetResumeArticle(searchTheme, searchString, page);
+            if (searchString != null)
+            {
+                MaxArticle = ArticleBlog.Count();
+                MaxPage = ArticleBlog.Count() / 5;
+            }
 
         }
         #region props
@@ -70,6 +84,8 @@ namespace hotel.Models
         public List<ArticleModel> RecentPost { get => _recentPost; set => _recentPost = value; }
         public List<CategorieModel> TagCloud { get => _tagCloud; set => _tagCloud = value; }
         public List<ArticleModel> InstaPost { get => _instaPost; set => _instaPost = value; }
+        public int MaxArticle { get => _maxArticle; set => _maxArticle = value; }
+        public int MaxPage { get => _maxPage; set => _maxPage = value; }
         #endregion
     }
 }

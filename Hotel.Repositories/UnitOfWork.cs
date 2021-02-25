@@ -76,10 +76,15 @@ namespace Hotel.Repositories
                 }
                 ).ToList();
         }
+        #region Blog
 
+        public int CountArticles()
+        {
+            return _articleRepo.Get().Count();
+        }
         public List<ArticleModel> GetCardArticleTop()
         {
-            return _articleRepo.Get()
+            return ((ArticleBlogRepository)_articleRepo).Get3Last()
                 .Select(item =>
                 new ArticleModel()
                 {
@@ -93,9 +98,9 @@ namespace Hotel.Repositories
                 ).ToList();
         }
 
-        public List<ArticleModel> GetResumeArticle()
+        public List<ArticleModel> GetResumeArticle(string searchTheme, string searchString, int page)
         {
-            return ((ArticleBlogRepository)_articleRepo).GetResume()
+            return ((ArticleBlogRepository)_articleRepo).GetResume(searchTheme, searchString, page)
                 .Select(item =>
                 new ArticleModel()
                 {
@@ -105,7 +110,7 @@ namespace Hotel.Repositories
                     Resume = item.Accroche,
                     Categorie = item.Themes,
                     NombreCommentaire = item.NBComment
-                    
+
                 }
                 ).ToList();
 
@@ -122,6 +127,30 @@ namespace Hotel.Repositories
                 ).ToList();
         }
 
+        public List<CategorieModel> GetCategory()
+        {
+            return _themeRepo.Get()
+                .Select(l =>
+                new CategorieModel()
+                {
+                  Nom=l.Libelle,
+                }
+                ).ToList();
+        }
+
+        public List<CategorieModel> GetCategoryAndNbArt()
+        {
+            return ((ThemeRepository)_themeRepo).GetThemeAndNbArt()
+                .Select(l =>
+                new CategorieModel()
+                {
+                    Nom = l.Libelle,
+                    NombreArticleCategorie = l.NbArtParTheme
+                }
+                ).ToList();
+        }
+
+        #endregion
         #region Contact
         public bool SaveContact(ContactModel cm)
         {

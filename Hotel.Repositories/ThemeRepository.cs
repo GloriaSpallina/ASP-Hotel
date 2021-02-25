@@ -10,19 +10,26 @@ namespace Hotel.Repositories
 {
     public class ThemeRepository : BaseRepository<ThemeEntity>, IConcreteRepository<ThemeEntity>
     {
-        public ThemeRepository(string connectionString): base(connectionString)
+        public ThemeRepository(string connectionString) : base(connectionString)
         {
 
         }
 
-        public bool Delete(ThemeEntity toDelete)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<ThemeEntity> Get()
         {
             return base.Get("SELECT * FROM THEME");
+        }
+
+        public List<ThemeEntity> GetThemeAndNbArt()
+        {
+            string requete = @"SELECT dbo.Theme.Libelle, COUNT(*) AS NbArtParTheme
+                                FROM dbo.ArticleBlog INNER JOIN
+                  dbo.ThemeArticle ON dbo.ArticleBlog.IdArticleBlog = dbo.ThemeArticle.IdArticleBlog INNER JOIN
+                  dbo.Theme ON dbo.ThemeArticle.IdTheme = dbo.Theme.IdTheme
+                                GROUP BY dbo.Theme.Libelle 
+                                ORDER BY NbArtParTheme DESC";
+            return base.Get(requete);
         }
 
         public ThemeEntity GetOne(int PK)
@@ -36,6 +43,11 @@ namespace Hotel.Repositories
         }
 
         public bool Update(ThemeEntity toUpdate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(ThemeEntity toDelete)
         {
             throw new NotImplementedException();
         }

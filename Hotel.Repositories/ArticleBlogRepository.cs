@@ -18,13 +18,33 @@ namespace Hotel.Repositories
 
         public List<ArticleBlogEntity> Get()
         {
+            string requete = "SELECT * FROM V_ArticleThemes";
+            return base.Get(requete);
+        }
+
+        public List<ArticleBlogEntity> Get3Last()
+        {
             string requete = "SELECT * FROM V_ArticleTop3";
             return base.Get(requete);
         }
 
-        public List<ArticleBlogEntity> GetResume()
+        public List<ArticleBlogEntity> GetResume(string searchTheme, string searchString, int page)
         {
-            string requete = "SELECT * FROM V_ArticleThemes";
+            string requete = "SELECT * FROM V_ArticleThemes ";
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                requete += " WHERE Titre LIKE '%" + searchString + "%' ";
+            }
+            if (!String.IsNullOrEmpty(searchTheme))
+            {
+                requete += " WHERE Themes LIKE '%" + searchTheme + "%' ";
+            }
+
+
+            int nbParPage = 5;
+            int skip = (page - 1) * 5;
+            requete += $@"ORDER BY [Date]  OFFSET {skip} ROWS 
+                                FETCH NEXT {nbParPage} ROWS ONLY";
             return base.Get(requete);
         }
 

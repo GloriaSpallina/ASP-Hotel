@@ -332,6 +332,7 @@
     <Content Include="Views\Shared\_instaPost.cshtml" />
     <Content Include="Views\Shared\_newsletterWidget.cshtml" />
     <Content Include="Views\Shared\_searchWidget.cshtml" />
+    <Content Include="Views\Shared\_paginate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
