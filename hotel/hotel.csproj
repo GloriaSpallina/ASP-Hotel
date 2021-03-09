@@ -122,13 +122,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Membre\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Membre\MembreAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infra\SessionUtils.cs" />
     <Compile Include="Models\AboutViewModel.cs" />
     <Compile Include="Models\BlogViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\LoginRegisterModel.cs" />
     <Compile Include="Models\RoomsViewModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\SingleBlogViewModel.cs" />
@@ -305,6 +312,10 @@
     <Content Include="js\slicknav.css" />
     <Content Include="js\vendor\modernizr-3.5.0.min.js" />
     <Content Include="js\wow.min.js" />
+    <Content Include="Areas\Membre\Views\web.config" />
+    <Content Include="Areas\Membre\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -333,9 +344,15 @@
     <Content Include="Views\Shared\_newsletterWidget.cshtml" />
     <Content Include="Views\Shared\_searchWidget.cshtml" />
     <Content Include="Views\Shared\_paginate.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Membre\Data\" />
+    <Folder Include="Areas\Membre\Views\Shared\" />
     <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>

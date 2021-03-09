@@ -44,9 +44,11 @@
   <ItemGroup>
     <Compile Include="ArticleModel.cs" />
     <Compile Include="CategorieModel.cs" />
+    <Compile Include="ClientModel.cs" />
     <Compile Include="CommentaireModel.cs" />
     <Compile Include="CompagnyAboutModel.cs" />
     <Compile Include="ContactModel.cs" />
+    <Compile Include="LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomCardModel.cs" />
     <Compile Include="ServiceHotelModel.cs" />

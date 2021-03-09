@@ -1,0 +1,122 @@
+﻿@model Hotel.Models.ClientModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="card card-login mx-auto text-center bg-dark">
+        <div class="card-body">
+            <form action="/Account/Register" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                    <div class="input-group form-group">
+                        <div class="pull-left">
+                            <span><i class="glyphicon glyphicon-user"></i></span> First Name
+                        </div>
+                        @Html.EditorFor(model => model.Prenom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Prenom, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="pull-left">
+                            <span class="input-group-text"><i class="glyphicon glyphicon-user"></i>Last Name</span>
+                        </div>
+                        @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="input-group form-group">
+                        <div class="pull-left">
+                            <span class="input-group-text"><i class="glyphicon glyphicon-user"></i> Login</span>
+                        </div>
+                        @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="pull-left">
+                            <span class="input-group-text"><i class="glyphicon glyphicon-lock"></i>Password</span>
+                        </div>
+                        @Html.EditorFor(model => model.MotDePasse, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MotDePasse, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="pull-left">
+                            <span class="input-group-text"><i class="glyphicon glyphicon-lock"></i> Confirm Password</span>
+                        </div>
+                        @Html.EditorFor(model => model.ConfirmMotDePasse, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmMotDePasse, "", new { @class = "text-danger" })
+
+                    </div>
+
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="pull-left">
+                        <span class="input-group-text">Email : </span>
+                    </div>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="pull-left">
+                        <span class="input-group-text">Phone</span>
+                    </div>
+                    @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="input-group form-group">
+                    <div class="pull-left">
+                        <span class="input-group-text">Country</span>
+                    </div>                <div class="col-md-10">
+                        @Html.EditorFor(model => model.Pays, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Pays, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="pull-left">
+                        <span class="input-group-text">City</span>
+                    </div>                <div class="col-md-10">
+                        @Html.EditorFor(model => model.Ville, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Ville, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="pull-left">
+                        <span class="input-group-text">Photo : </span>
+                    </div>                <div class="col-md-10">
+                        @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+       
+        @ViewBag.Error
+      
+    </div>
+</div>
+

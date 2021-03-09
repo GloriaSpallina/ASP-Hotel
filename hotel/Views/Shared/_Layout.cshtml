@@ -66,6 +66,15 @@
                                             </ul>
                                         </li>
                                         <li><a href="/Home/Contact">Contact</a></li>
+                                        @if (hotel.Infra.SessionUtils.IsLogged)
+                                        {
+                                            <li><a title="Logout" href="/Account/Logout">Logout</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a title="Login" href="/Account/Login">Login</a></li>
+                                        }
+                                        <li><a class="@ViewBag.ZoneMembre" title="Zone Membre" href="~/Membre/Home/Index"><div class="cat"><i class="Member"></i><i class="Member1"></i></div></a></li>
                                     </ul>
                                 </nav>
                             </div>

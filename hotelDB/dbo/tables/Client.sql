@@ -1,13 +1,20 @@
 ﻿CREATE TABLE [dbo].[Client] (
-    [IdClient]   INT            IDENTITY (1, 1) NOT NULL,
-    [Telephone]  VARCHAR (16)   NOT NULL,
-    [Pays]       NVARCHAR (50)  NOT NULL,
-    [MotDePasse] VARBINARY (32) NOT NULL,
-    [Salt]       CHAR (8)       NOT NULL,
-    [IdUser]     INT            NOT NULL,
-    [IsAdmin]    BIT            NOT NULL,
+    [IdClient] INT IDENTITY NOT NULL,
+    [Nom] NVARCHAR(64) NOT NULL, 
+    [Prenom] NVARCHAR(64) NOT NULL, 
+    [Email] NVARCHAR(323) NULL, 
+    [Photo] NVARCHAR(50) NULL,
+    [Telephone]  VARCHAR (16)   NULL,
+    [Rue]       NVARCHAR (150)  NULL,
+    [Numero]       NVARCHAR (10)  NULL,
+    [Ville]       NVARCHAR (150)  NULL,
+    [Pays]       NVARCHAR (50)  NULL,
+    [Login] NVARCHAR(50) NOT NULL,
+    [MotDePasse] NVARCHAR(MAX) NOT NULL,
+    [Salt]       CHAR (8)       NULL,
+    [IsAdmin]    BIT            NULL,
     CONSTRAINT [PK__Client__C1961B33CD1C3FCB] PRIMARY KEY CLUSTERED ([IdClient] ASC),
-    CONSTRAINT [FK_Client_ToUser] FOREIGN KEY ([IdUser]) REFERENCES [dbo].[User] ([IdUser])
+   
 );
 
 

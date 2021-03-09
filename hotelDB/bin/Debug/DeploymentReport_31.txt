@@ -1,0 +1,28 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       [dbo].[Client]
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Reconstruction de la table
+       [dbo].[Client] (Table)
+     Modifier
+       [dbo].[SF_EncryptedPassword] (Fonction)
+       [dbo].[SP_CLIENT_Insert] (Procédure)
+
+** Actions de support
+     Supprimer
+       [dbo].[FK_Evaluation_ToClient] (Clé étrangère)
+       [dbo].[FK_Facture_ToClient] (Clé étrangère)
+       [dbo].[FK_Reservation_ToClient] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToClient] (Clé étrangère)
+     Créer
+       [dbo].[FK_Evaluation_ToClient] (Clé étrangère)
+       [dbo].[FK_Facture_ToClient] (Clé étrangère)
+       [dbo].[FK_Reservation_ToClient] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToClient] (Clé étrangère)

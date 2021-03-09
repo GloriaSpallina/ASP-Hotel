@@ -64,7 +64,6 @@
     <Folder Include="dbo\ProcedureStockees" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\tables\User.sql" />
     <Build Include="dbo\tables\Message.sql" />
     <Build Include="dbo\tables\PhotoTypeChambre.sql" />
     <Build Include="dbo\tables\Reservation.sql" />

@@ -21,7 +21,8 @@ namespace Hotel.Repositories
         IConcreteRepository<ArticleBlogEntity> _articleRepo;
         IConcreteRepository<MessageEntity> _messageRepo;
         IConcreteRepository<ThemeEntity> _themeRepo;
-       
+        IConcreteRepository<ClientEntity> _ClientRepo;
+
         #endregion
 
         public UnitOfWork(string connectionString)
@@ -34,6 +35,7 @@ namespace Hotel.Repositories
             _articleRepo = new ArticleBlogRepository(connectionString);
             _messageRepo = new MessageRepository(connectionString);
             _themeRepo = new ThemeRepository(connectionString);
+            _ClientRepo = new ClientRepository(connectionString);
         }
 
         public List<SliderModel> GetPhotoHotel(int idHotel)
@@ -163,6 +165,24 @@ namespace Hotel.Repositories
 
             return _messageRepo.Insert(me);
         }
+        #endregion
+
+
+        #region Account
+
+        public bool CreateClient (ClientModel cl)
+        {
+            ClientEntity clientEntity = new ClientEntity()
+            {
+                Nom = cl.Nom,
+                Prenom = cl.Prenom,
+                Login = cl.Login,
+                MotDePasse = cl.MotDePasse,
+
+            };
+            return _ClientRepo.Insert(clientEntity);
+        }
+
         #endregion
     }
 }

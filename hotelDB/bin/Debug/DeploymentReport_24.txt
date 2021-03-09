@@ -1,0 +1,62 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       [dbo].[Client]
+       [dbo].[CommentaireArticle]
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       La colonne [dbo].[Client].[IdUser] est en cours de suppression, des données risquent d'être perdues.
+       La colonne [dbo].[Client].[Login] de la table [dbo].[Client] doit être ajoutée mais la colonne ne comporte pas de valeur
+         par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le script ALTER ne fonctionnera pas.
+         Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la marquer comme autorisant les valeurs
+         Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+       La colonne [dbo].[Client].[Nom] de la table [dbo].[Client] doit être ajoutée mais la colonne ne comporte pas de valeur
+         par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le script ALTER ne fonctionnera pas.
+         Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la marquer comme autorisant les valeurs
+         Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+       La colonne [dbo].[Client].[Prenom] de la table [dbo].[Client] doit être ajoutée mais la colonne ne comporte pas de
+         valeur par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le script ALTER ne fonctionnera
+         pas. Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la marquer comme autorisant les
+         valeurs Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+       La colonne [dbo].[CommentaireArticle].[IdUser] est en cours de suppression, des données risquent d'être perdues.
+       La colonne [dbo].[CommentaireArticle].[IdClient] de la table [dbo].[CommentaireArticle] doit être ajoutée mais la
+         colonne ne comporte pas de valeur par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le
+         script ALTER ne fonctionnera pas. Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la
+         marquer comme autorisant les valeurs Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+
+** Actions de l'utilisateur
+     Supprimer
+       [dbo].[FK_Client_ToUser] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToUser] (Clé étrangère)
+     Reconstruction de la table
+       [dbo].[Client] (Table)
+       [dbo].[CommentaireArticle] (Table)
+     Créer
+       [dbo].[FK_CommentaireArticle_ToClient] (Clé étrangère)
+     Modifier
+       [dbo].[SP_CLIENT_Insert] (Procédure)
+
+** Actions de support
+     Supprimer
+       [dbo].[FK_Evaluation_ToClient] (Clé étrangère)
+       [dbo].[FK_Facture_ToClient] (Clé étrangère)
+       [dbo].[FK_Reservation_ToClient] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToArticleBlog] (Clé étrangère)
+     Créer
+       [dbo].[FK_Evaluation_ToClient] (Clé étrangère)
+       [dbo].[FK_Facture_ToClient] (Clé étrangère)
+       [dbo].[FK_Reservation_ToClient] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToArticleBlog] (Clé étrangère)
+     Actualiser
+       [dbo].[V_ArticleTop3] (Vue)
+
+La colonne [dbo].[Client].[IdUser] est en cours de suppression, des données risquent d'être perdues.
+La colonne [dbo].[Client].[Login] de la table [dbo].[Client] doit être ajoutée mais la colonne ne comporte pas de valeur par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le script ALTER ne fonctionnera pas. Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la marquer comme autorisant les valeurs Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+La colonne [dbo].[Client].[Nom] de la table [dbo].[Client] doit être ajoutée mais la colonne ne comporte pas de valeur par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le script ALTER ne fonctionnera pas. Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la marquer comme autorisant les valeurs Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+La colonne [dbo].[Client].[Prenom] de la table [dbo].[Client] doit être ajoutée mais la colonne ne comporte pas de valeur par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le script ALTER ne fonctionnera pas. Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la marquer comme autorisant les valeurs Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+La colonne [dbo].[CommentaireArticle].[IdUser] est en cours de suppression, des données risquent d'être perdues.
+La colonne [dbo].[CommentaireArticle].[IdClient] de la table [dbo].[CommentaireArticle] doit être ajoutée mais la colonne ne comporte pas de valeur par défaut et n'autorise pas les valeurs NULL. Si la table contient des données, le script ALTER ne fonctionnera pas. Pour éviter ce problème, vous devez ajouter une valeur par défaut à la colonne, la marquer comme autorisant les valeurs Null ou activer la génération de smart-defaults en tant qu'option de déploiement.
+Si ce déploiement est exécuté, les modifications de [dbo].[CommentaireArticle] risquent d'introduire des erreurs d'exécution dans [dbo].[V_ArticleThemes].
+
