@@ -1,4 +1,5 @@
-﻿using System;
+﻿using hotel.Infra;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,18 @@ namespace hotel.Areas.Membre.Controllers
         // GET: Membre/Home
         public ActionResult Index()
         {
-            return View();
+            ViewBag.ZoneMembre = "active";
+            if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
+
+            return View(SessionUtils.ConnectedUser);
+        }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

@@ -62,6 +62,7 @@
     <Folder Include="dbo\Views\" />
     <Folder Include="dbo\FonctionScalaires" />
     <Folder Include="dbo\ProcedureStockees" />
+    <Folder Include="dbo\Functions\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\tables\Message.sql" />
@@ -90,6 +91,9 @@
     <Build Include="dbo\FonctionScalaires\SF_EncryptePassword.sql" />
     <Build Include="dbo\FonctionScalaires\SF_GenerateSalt.sql" />
     <Build Include="dbo\ProcedureStockees\SP_CLIENT_INSERT.sql" />
+    <Build Include="dbo\ProcedureStockees\SP_CHECK_PASSWORD.sql" />
+    <Build Include="dbo\Views\V_ArticleThemes.sql" />
+    <Build Include="dbo\Functions\FN_GETTHEME.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="hotelDB.jfm" />

@@ -11,7 +11,7 @@ namespace Hotel.Models
     {
         int _idClient;
         string _prenom, _nom, _login, _motDePasse, _confirmMotDePasse;
-        string  _email, _telephone, _pays, _ville, _photo;
+        string  _email, _telephone, _pays, _ville, _photo, _rue, _numero;
         public int IdClient
         {
             get
@@ -128,7 +128,6 @@ namespace Hotel.Models
 
  
         [Required]
-
         public string Pays
         {
             get
@@ -167,5 +166,8 @@ namespace Hotel.Models
                 _photo = value;
             }
         }
+
+        public string Rue { get => _rue; set => _rue = value; }
+        public string Numero { get => _numero; set => _numero = value; }
     }
 }

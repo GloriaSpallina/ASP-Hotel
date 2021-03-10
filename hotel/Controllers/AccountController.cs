@@ -44,8 +44,8 @@ namespace hotel.Controllers
             //{
             if (ModelState.IsValid)
             {
-               
-                if (lm.Login != "Gloria" && lm.MotDePasse != "test1234")
+                ClientModel cm = uow.ClientAuth(lm);
+                if (cm == null)
                 {
                     ViewBag.Error = "Erreur Login/Password";
                     return View();
@@ -58,6 +58,7 @@ namespace hotel.Controllers
                 else
                 {
                     SessionUtils.IsLogged = true;
+                    SessionUtils.ConnectedUser = cm;
                     return RedirectToAction("Index", "Home", new { area = "Membre" });
                 }
             }
@@ -86,7 +87,7 @@ namespace hotel.Controllers
                 if (uow.CreateClient(cl))
                 {
                     SessionUtils.IsLogged = true;
-                    //SessionUtils.ConnectedUser = cl;
+                    SessionUtils.ConnectedUser = cl;
                     return RedirectToAction("Index", "Home", new { area = "Membre" });
                 }
                 else

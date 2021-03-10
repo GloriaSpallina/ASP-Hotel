@@ -21,7 +21,7 @@ namespace Hotel.Repositories
         IConcreteRepository<ArticleBlogEntity> _articleRepo;
         IConcreteRepository<MessageEntity> _messageRepo;
         IConcreteRepository<ThemeEntity> _themeRepo;
-        IConcreteRepository<ClientEntity> _ClientRepo;
+        IConcreteRepository<ClientEntity> _clientRepo;
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Hotel.Repositories
             _articleRepo = new ArticleBlogRepository(connectionString);
             _messageRepo = new MessageRepository(connectionString);
             _themeRepo = new ThemeRepository(connectionString);
-            _ClientRepo = new ClientRepository(connectionString);
+            _clientRepo = new ClientRepository(connectionString);
         }
 
         public List<SliderModel> GetPhotoHotel(int idHotel)
@@ -179,10 +179,43 @@ namespace Hotel.Repositories
                 Login = cl.Login,
                 MotDePasse = cl.MotDePasse,
                 Ville = cl.Ville,
-                Pays = cl.Pays
+                Pays = cl.Pays,
+                Email = cl.Email,
+                Rue = cl.Rue,
+                Telephone = cl.Telephone,
+                Photo = cl.Photo,
+                Numero = cl.Numero
+               
 
             };
-            return _ClientRepo.Insert(clientEntity);
+            return _clientRepo.Insert(clientEntity);
+        }
+
+        public ClientModel ClientAuth(LoginModel lm)
+        {
+            ClientEntity ue = ((ClientRepository)_clientRepo).GetFromLogin(lm.Login, lm.MotDePasse);
+            if (ue == null) return null;
+            
+            if (ue != null)
+            {
+                return new ClientModel()
+                {
+                   Nom = ue.Nom,
+                   Prenom = ue.Prenom,
+                   Login = ue.Login,
+                   Ville = ue.Ville,
+                   Pays = ue.Pays,
+                    Email = ue.Email,
+                    Rue = ue.Rue,
+                    Telephone = ue.Telephone,
+                    Photo = ue.Photo,
+                    Numero = ue.Numero
+                };
+            }
+            else
+            {
+                return null;
+            }
         }
 
         #endregion

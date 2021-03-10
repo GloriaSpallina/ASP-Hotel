@@ -34,10 +34,25 @@ namespace Hotel.Repositories
                 ,@Prenom
                 ,@Login
                 ,@Pays
-                ,@Ville";
+                ,@Ville
+	            ,@Rue
+                ,@Numero
+                ,@Telephone
+                ,@Email
+                ,@Photo ";
             return base.Insert(toInsert, requete);
         }
 
+        public ClientEntity GetFromLogin(string login, string password)
+        {
+            string requete = @"EXEC [dbo].[SP_CHECK_PASSWORD]
+                @Login,
+                @MotDePasse";
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("Login", login);
+            param.Add("MotDePasse", password);
+            return base.Get(requete, param).FirstOrDefault();
+        }
         public bool Update(ClientEntity toUpdate)
         {
             throw new NotImplementedException();
