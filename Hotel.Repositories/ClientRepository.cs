@@ -10,7 +10,7 @@ namespace Hotel.Repositories
 {
     public class ClientRepository : BaseRepository<ClientEntity>, IConcreteRepository<ClientEntity>
     {
-        public ClientRepository(string connectionString):base(connectionString)
+        public ClientRepository(string connectionString) : base(connectionString)
         {
 
         }
@@ -28,7 +28,13 @@ namespace Hotel.Repositories
 
         public bool Insert(ClientEntity toInsert)
         {
-            string requete = @"exec SP_CLIENT_Insert (@Nom, @Prenom, @Login, @MotDePasse)";
+            string requete = @"EXECUTE [dbo].[SP_CLIENT_INSERT]
+                 @MotDePasse
+                ,@Nom
+                ,@Prenom
+                ,@Login
+                ,@Pays
+                ,@Ville";
             return base.Insert(toInsert, requete);
         }
 

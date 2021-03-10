@@ -45,12 +45,12 @@ namespace hotel.Controllers
             if (ModelState.IsValid)
             {
                
-                if (lm.Login != "Gloria" && lm.MotDePasse != "test")
+                if (lm.Login != "Gloria" && lm.MotDePasse != "test1234")
                 {
                     ViewBag.Error = "Erreur Login/Password";
                     return View();
                 }
-                else if (lm.Login == "Admin" && lm.MotDePasse == "test")
+                else if (lm.Login == "Admin" && lm.MotDePasse == "test1234")
                 {
                     SessionUtils.IsLogged = true;
                     return RedirectToAction("Index", "Home", new { area = "Admin" });

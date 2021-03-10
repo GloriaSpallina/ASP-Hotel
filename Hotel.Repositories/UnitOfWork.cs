@@ -178,6 +178,8 @@ namespace Hotel.Repositories
                 Prenom = cl.Prenom,
                 Login = cl.Login,
                 MotDePasse = cl.MotDePasse,
+                Ville = cl.Ville,
+                Pays = cl.Pays
 
             };
             return _ClientRepo.Insert(clientEntity);
