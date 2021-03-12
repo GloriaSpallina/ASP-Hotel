@@ -17,6 +17,7 @@ namespace hotel.Controllers
         // GET: Account
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -38,10 +39,7 @@ namespace hotel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel lm)
         {
-            //string userResponse = HttpContext.Request.Params["g-recaptcha-response"];
-            //bool validCaptcha = ReCaptcha.ValidateCaptcha(userResponse);
-            //if (validCaptcha)
-            //{
+            
             if (ModelState.IsValid)
             {
                 ClientModel cm = uow.ClientAuth(lm);

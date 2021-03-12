@@ -22,6 +22,7 @@ namespace Hotel.Repositories
         IConcreteRepository<MessageEntity> _messageRepo;
         IConcreteRepository<ThemeEntity> _themeRepo;
         IConcreteRepository<ClientEntity> _clientRepo;
+        IConcreteRepository<ReservationEntity> _reservationRepo;
 
         #endregion
 
@@ -36,6 +37,7 @@ namespace Hotel.Repositories
             _messageRepo = new MessageRepository(connectionString);
             _themeRepo = new ThemeRepository(connectionString);
             _clientRepo = new ClientRepository(connectionString);
+            _reservationRepo = new ReservationRepository(connectionString);
         }
 
         public List<SliderModel> GetPhotoHotel(int idHotel)
@@ -78,6 +80,7 @@ namespace Hotel.Repositories
                 }
                 ).ToList();
         }
+
         #region Blog
 
         public int CountArticles()
@@ -153,6 +156,8 @@ namespace Hotel.Repositories
         }
 
         #endregion
+
+
         #region Contact
         public bool SaveContact(ContactModel cm)
         {
@@ -174,6 +179,7 @@ namespace Hotel.Repositories
         {
             ClientEntity clientEntity = new ClientEntity()
             {
+                IdClient = cl.IdClient,
                 Nom = cl.Nom,
                 Prenom = cl.Prenom,
                 Login = cl.Login,
@@ -200,7 +206,8 @@ namespace Hotel.Repositories
             {
                 return new ClientModel()
                 {
-                   Nom = ue.Nom,
+                   IdClient = ue.IdClient,
+                    Nom = ue.Nom,
                    Prenom = ue.Prenom,
                    Login = ue.Login,
                    Ville = ue.Ville,
@@ -217,6 +224,26 @@ namespace Hotel.Repositories
                 return null;
             }
         }
+
+        public List<ReservationModel> GetReservation(string CurrentLogin)
+        {
+            return ((ReservationRepository)_reservationRepo).GetAllFromClient(CurrentLogin)
+                .Select(item =>
+                new ReservationModel()
+                {
+                    IdClient = item.IdClient,
+                    Datereservation = item.DateReservation,
+                    Datedebut = item.DateDebutSejour,
+                    Datefin = item.DateFinSejour,
+                    Nombreadulte = item.NombreAdulte,
+                    Nombreenfant = item.NombreEnfant,
+                    Typechambre = item.NomTypeChambre,
+                    Photochambre = item.PhotoTypeChambre,
+
+                }
+                ).ToList();
+        }
+
 
         #endregion
     }

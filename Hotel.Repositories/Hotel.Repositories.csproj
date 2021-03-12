@@ -48,6 +48,7 @@
     <Compile Include="MessageRepository.cs" />
     <Compile Include="PhotoTypeChambreRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationRepository.cs" />
     <Compile Include="ServiceRepository.cs" />
     <Compile Include="ThemeRepository.cs" />
     <Compile Include="TypeChambreRepository.cs" />

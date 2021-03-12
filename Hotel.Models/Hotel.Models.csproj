@@ -50,6 +50,7 @@
     <Compile Include="ContactModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationModel.cs" />
     <Compile Include="RoomCardModel.cs" />
     <Compile Include="ServiceHotelModel.cs" />
     <Compile Include="SliderModel.cs" />

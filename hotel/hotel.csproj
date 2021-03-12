@@ -136,6 +136,7 @@
     <Compile Include="Models\BlogViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\LoginRegisterModel.cs" />
+    <Compile Include="Models\MembreViewModel.cs" />
     <Compile Include="Models\RoomsViewModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\SingleBlogViewModel.cs" />
