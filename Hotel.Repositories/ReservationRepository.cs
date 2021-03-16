@@ -32,6 +32,8 @@ namespace Hotel.Repositories
 
         public List<ReservationEntity> GetAllFromClient(string login)
         {
+            //Dictionary<string, object> p = new Dictionary<string, object>();
+            //p.Add("login", login);
             string requete = "SELECT * FROM V_ReservationFullInfo WHERE [Login]='"+login+"'";
             return base.Get(requete); 
         }

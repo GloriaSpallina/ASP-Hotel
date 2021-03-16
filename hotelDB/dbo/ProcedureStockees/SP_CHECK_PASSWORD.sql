@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Check_Password]
-    @Login VARCHAR (16),
+    @Login NVARCHAR (50),
     @MotDePasse NVARCHAR(MAX)
     
 AS
     DECLARE @hMotDePasse NVARCHAR(MAX)
     DECLARE @salt CHAR(8)
     DECLARE @newMotDePasse NVARCHAR(MAX)
-    SELECT @salt = salt, @hMotDePasse = MotDePasse FROM Client WHERE login = @login
+    SELECT @salt = salt, @hMotDePasse = MotDePasse FROM Client WHERE login = @Login
     SELECT @newMotDePasse = dbo.SF_EncryptedPassword (@MotDePasse, @salt)
     IF (@newMotDePasse = @hMotDePasse)
     BEGIN 

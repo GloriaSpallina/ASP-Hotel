@@ -10,8 +10,9 @@ namespace Hotel.Models
     {
         #region Fields
         private DateTime _datereservation, _datedebut, _datefin;
-        private string _typechambre, _photochambre;
+        private string _typechambre, _photochambre, _login;
         private int _nombreadulte, _nombreenfant, _idClient;
+        private double _prix;
 
         #endregion
 
@@ -25,6 +26,8 @@ namespace Hotel.Models
         public int Nombreadulte { get => _nombreadulte; set => _nombreadulte = value; }
         public int Nombreenfant { get => _nombreenfant; set => _nombreenfant = value; }
         public int IdClient { get => _idClient; set => _idClient = value; }
+        public double Prix { get => _prix; set => _prix = value; }
+        public string Login { get => _login; set => _login = value; }
 
         #endregion
     }

@@ -13,8 +13,8 @@ namespace hotel.Models
     {
         UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
 
-  
-        public ClientModel CurrentClient{ get; set; }
+
+        public ClientModel CurrentClient { get; set; }
         public List<ReservationModel> Rm { get; set; }
 
 
@@ -22,10 +22,10 @@ namespace hotel.Models
         public MembreViewModel()
         {
             CurrentClient = SessionUtils.ConnectedUser;
-            Rm = uow.GetReservation(SessionUtils.ConnectedUser.Login);
+            Rm = uow.GetReservation(CurrentClient.Login);
         }
 
-        
+
 
     }
 }

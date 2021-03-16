@@ -225,13 +225,14 @@ namespace Hotel.Repositories
             }
         }
 
-        public List<ReservationModel> GetReservation(string CurrentLogin)
+        public List<ReservationModel> GetReservation(string Loging)
         {
-            return ((ReservationRepository)_reservationRepo).GetAllFromClient(CurrentLogin)
+            return ((ReservationRepository)_reservationRepo).GetAllFromClient(Loging)
                 .Select(item =>
                 new ReservationModel()
                 {
                     IdClient = item.IdClient,
+                    Login = item.Login,
                     Datereservation = item.DateReservation,
                     Datedebut = item.DateDebutSejour,
                     Datefin = item.DateFinSejour,
@@ -239,11 +240,16 @@ namespace Hotel.Repositories
                     Nombreenfant = item.NombreEnfant,
                     Typechambre = item.NomTypeChambre,
                     Photochambre = item.PhotoTypeChambre,
+                    Prix = item.Prix
 
                 }
                 ).ToList();
         }
 
+        public bool AddReservation(ReservationModel rm)
+        {
+            return true;
+        }
 
         #endregion
     }

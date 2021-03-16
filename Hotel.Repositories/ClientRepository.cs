@@ -43,14 +43,14 @@ namespace Hotel.Repositories
             return base.Insert(toInsert, requete);
         }
 
-        public ClientEntity GetFromLogin(string login, string password)
+        public ClientEntity GetFromLogin(string Login, string MotDePasse)
         {
             string requete = @"EXEC [dbo].[SP_CHECK_PASSWORD]
                 @Login,
                 @MotDePasse";
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("Login", login);
-            param.Add("MotDePasse", password);
+            param.Add("Login", Login);
+            param.Add("MotDePasse", MotDePasse);
             return base.Get(requete, param).FirstOrDefault();
         }
         public bool Update(ClientEntity toUpdate)

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 
 namespace hotel.Areas.Membre.Controllers
@@ -31,12 +32,39 @@ namespace hotel.Areas.Membre.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        public ActionResult Reservation()
-        {
+       //[HttpGet]
+       // public ActionResult Booking()
+       // {
+       //     if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
 
-            if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
-            return View(SessionUtils.ConnectedUser);
-        }
+       //     return View(SessionUtils.ConnectedUser);
+       // }
+
+       // [HttpPost]
+       // [ValidateAntiForgeryToken]
+       // public ActionResult Booking(ReservationModel rm)
+       // {
+       //     if (ModelState.IsValid)
+       //     {
+       //         if (uow.AddReservation(rm))
+       //         {
+       //             return RedirectToAction("Index", "Home", new { area = "Membre" });
+       //         }
+       //         else
+       //         {
+       //             ViewBag.Error = "Reservation impossible !";
+       //             return View(rm);
+       //         }
+       //     }
+       //     else
+       //     {
+       //         ViewBag.Error = "Bien remplir le formulaire !";
+       //         return View(rm);
+       //     }
+            
+       // }
+
+       
 
     }
 }
