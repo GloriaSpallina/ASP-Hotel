@@ -25,32 +25,19 @@ namespace hotel.Models
 
 
             // Nombre d'artcile par catégorie
-            //ListeCategories = new List<CategorieModel>();
-            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Resaurant food", NombreArticleCategorie = 37 });
-            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Travel news", NombreArticleCategorie = 10 });
-            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Modern technology", NombreArticleCategorie = 3 });
-            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Product", NombreArticleCategorie = 11 });
-            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Inspiration", NombreArticleCategorie = 21 });
-            //ListeCategories.Add(new CategorieModel() { Ref = "#", Nom = "Health care", NombreArticleCategorie = 14 });
             ListeCategories = uow.GetCategoryAndNbArt();
+
             //recent poste
-            RecentPost = new List<ArticleModel>();
-            RecentPost.Add(new ArticleModel() { LienArticle= "/Home/SingleBlog", Photo = "post_1.png", Titre="From life was fish...", DateArticle = new DateTime(2019,01,12) });
-            RecentPost.Add(new ArticleModel() { LienArticle = "/Home/SingleBlog", Photo = "post_2.png", Titre = "The Amazing Hubble", DateArticle = new DateTime(2019, 01, 12) });
-            RecentPost.Add(new ArticleModel() { LienArticle = "/Home/SingleBlog", Photo = "post_3.png", Titre = "Astronomy Or Astrology", DateArticle = new DateTime(2019, 01, 12) });
-            RecentPost.Add(new ArticleModel() { LienArticle = "/Home/SingleBlog", Photo = "post_4.png", Titre = "Asteroids telescope", DateArticle = new DateTime(2019, 01, 12) });
+            RecentPost = uow.GetCardArticleTop();
+            //RecentPost = new List<ArticleModel>();
+            //RecentPost.Add(new ArticleModel() { LienArticle= "/Home/SingleBlog", Photo = "post_1.png", Titre="From life was fish...", DateArticle = new DateTime(2019,01,12) });
+            //RecentPost.Add(new ArticleModel() { LienArticle = "/Home/SingleBlog", Photo = "post_2.png", Titre = "The Amazing Hubble", DateArticle = new DateTime(2019, 01, 12) });
+            //RecentPost.Add(new ArticleModel() { LienArticle = "/Home/SingleBlog", Photo = "post_3.png", Titre = "Astronomy Or Astrology", DateArticle = new DateTime(2019, 01, 12) });
+            //RecentPost.Add(new ArticleModel() { LienArticle = "/Home/SingleBlog", Photo = "post_4.png", Titre = "Asteroids telescope", DateArticle = new DateTime(2019, 01, 12) });
 
             //tag Cloud
             TagCloud = uow.GetCloudTag();
-            //TagCloud = new List<CategorieModel>();
-            //TagCloud.Add(new CategorieModel(){ Nom="project", Ref="#"});
-            //TagCloud.Add(new CategorieModel() { Nom = "love", Ref = "#" });
-            //TagCloud.Add(new CategorieModel() { Nom = "technology", Ref = "#" });
-            //TagCloud.Add(new CategorieModel() { Nom = "travel", Ref = "#" });
-            //TagCloud.Add(new CategorieModel() { Nom = "restaurant", Ref = "#" });
-            //TagCloud.Add(new CategorieModel() { Nom = "life style", Ref = "#" });
-            //TagCloud.Add(new CategorieModel() { Nom = "design", Ref = "#" });
-            //TagCloud.Add(new CategorieModel() { Nom = "illustration", Ref = "#" });
+           
 
             //insta
 

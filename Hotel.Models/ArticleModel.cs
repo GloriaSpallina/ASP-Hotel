@@ -8,7 +8,7 @@ namespace hotel.Models
     public class ArticleModel
     {
         private string _titre, _phototAuteur, _textAuteur, _categorie, _photo, _article, _evidenceTexte, _nomLikeur, _lienArticle, _resume, _para1, _para2, _para3, _para4, _nomAuteur, _prenomAuteur;
-        private int nombreCommentaire, NombreLike;
+        private int nombreCommentaire, NombreLike, _idBlog;
         private DateTime _dateArticle;
 
         public string Titre { get => _titre; set => _titre = value; }
@@ -30,5 +30,6 @@ namespace hotel.Models
         public string TextAuteur { get => _textAuteur; set => _textAuteur = value; }
         public string NomAuteur { get => _nomAuteur; set => _nomAuteur = value; }
         public string PrenomAuteur { get => _prenomAuteur; set => _prenomAuteur = value; }
+        public int IdBlog { get => _idBlog; set => _idBlog = value; }
     }
 }

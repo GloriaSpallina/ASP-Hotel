@@ -1,0 +1,93 @@
+﻿@model hotel.Models.AboutViewModel
+@{
+    ViewBag.Title = "About";
+}
+
+
+
+<main>
+
+    <!-- slider Area Start-->
+    <div class="slider-area">
+        <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="/img/hero/aboutpage_hero.jpg">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-11 offset-xl-1 offset-lg-1 offset-md-1">
+                        <div class="hero-caption">
+                            <span>@ViewBag.Title</span>
+                            <h2>@ViewBag.Title</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+    <!-- Make customer Start-->
+    <section class="make-customer-area customar-padding fix">
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="customer-img mb-120">
+                        <img src="/img/customer/@Model.AboutC.Photo" class="customar-img1" alt="">
+                        <img src="/img/customer/customar2.png" class="customar-img2" alt="">
+                        <div class="service-experience heartbeat">
+                            <h3>@Model.AboutC.AnneeExpe Years of Service<br>Experience</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-xl-4 col-lg-4">
+                    <div class="customer-caption">
+                        <span>About our company</span>
+                        <h2>@Model.AboutC.Slogan</h2>
+                        <div class="caption-details">
+                            <p class="pera-dtails">@Model.AboutC.DescriptionCourte</p>
+                            <p>@Model.AboutC.DescriptionLongue </p>
+                            <a href="#" class="btn more-btn1">Learn More <i class="ti-angle-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Make customer End-->
+    <!-- Gallery img Start-->
+    @{
+        Html.RenderPartial("~/Views/Shared/_slider.cshtml", Model.RoomSliderAbout);
+    }
+    <!-- Gallery img End-->
+    <!-- Dining Start -->
+    @{
+        Html.RenderPartial("~/Views/Shared/_services.cshtml", Model.ServiceAbout);
+    }
+    <!-- Dining End -->
+    <!-- Testimonial Start -->
+    @{
+        Html.RenderPartial("~/Views/Shared/_testimonial.cshtml", Model.TemoignageAbout);
+    }
+    <!-- Testimonial End -->
+
+</main>
+
+
+<script>
+    $('#datepicker').datepicker({
+        iconsLibrary: 'fontawesome',
+        disableDaysOfWeek: [0, 0],
+        //     icons: {
+        //      rightIcon: '<span class="fa fa-caret-down"></span>'
+        //  }
+    });
+    $('#datepicker2').datepicker({
+        iconsLibrary: 'fontawesome',
+        icons: {
+            rightIcon: '<span class="fa fa-caret-down"></span>'
+        }
+
+    });
+    var timepicker = $('#timepicker').timepicker({
+        format: 'HH.MM'
+    });
+</script>
+
+

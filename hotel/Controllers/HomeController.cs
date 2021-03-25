@@ -106,9 +106,9 @@ namespace hotel.Controllers
 
             return View(svm);
         }
-        public ActionResult SingleBlog()
+        public ActionResult SingleBlog(int idArticle)
         {
-            SingleBlogViewModel sbm = new SingleBlogViewModel();
+            SingleBlogViewModel sbm = new SingleBlogViewModel(idArticle);
             ViewBag.Message = "Your Single blog page.";
 
             return View(sbm);

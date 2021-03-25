@@ -1,0 +1,18 @@
+﻿
+<div class="gallery-area fix">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="gallery-active owl-carousel">
+                    @foreach (hotel.Models.SliderModel item in Model)
+                    {
+                        <div class="gallery-img">
+                            <a href="@item.Ref"><img src="/img/rooms/@item.LienPhoto" alt=""></a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

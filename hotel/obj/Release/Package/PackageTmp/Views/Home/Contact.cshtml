@@ -1,0 +1,83 @@
+﻿@model Hotel.Models.ContactModel
+    
+@{ViewBag.Title = "Contact";
+}
+
+
+<!-- ================ contact section start ================= -->
+<section class="contact-section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Get in Touch</h2>
+            </div>
+            <div class="col-lg-8">
+                <form  method="post" >
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="col-12">
+                            <div >
+                                <textarea class=" w-100" name="Message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
+                                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div >
+                                <input name="Nom"  type="text" placeholder="Enter your name"/>
+                                @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <input name="Email" id="email" type="email" placeholder="Email"/>
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "danger" })
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div >
+                                <input -name="Subject" type="text" placeholder="Enter Subject"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <input type="submit" placeholder="SEND"/>
+                    </div>
+                </form>
+                @if (ViewBag.SuccessMessage != null)
+                {
+                    @:<div class="success">@ViewBag.SuccessMessage</div>
+                }
+
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    @:<div class="danger">@ViewBag.ErrorMessage</div>
+                }
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-home"></i></span>
+                    <div class="media-body">
+                        <h3>Buttonwood, California.</h3>
+                        <p>Rosemead, CA 91770</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                    <div class="media-body">
+                        <h3>+1 253 565 2365</h3>
+                        <p>Mon to Fri 9am to 6pm</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-email"></i></span>
+                    <div class="media-body">
+                        <h3>support@colorlib.com</h3>
+                        <p>Send us your query anytime!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ contact section end ================= -->

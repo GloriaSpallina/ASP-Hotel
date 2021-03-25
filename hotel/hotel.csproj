@@ -137,6 +137,7 @@
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\LoginRegisterModel.cs" />
     <Compile Include="Models\MembreViewModel.cs" />
+    <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\RoomsViewModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\SingleBlogViewModel.cs" />
@@ -317,6 +318,8 @@
     <Content Include="Areas\Membre\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Membre\Views\Home\Booking.cshtml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />

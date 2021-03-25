@@ -1,0 +1,102 @@
+﻿
+<div class="testimonial-area testimonial-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 col-lg-9 col-md-9">
+                <div class="h1-testimonial-active">
+
+                    @foreach (hotel.Models.TemoignageModel item in Model)
+                    {
+
+                        <!-- Single Testimonial -->
+                        <div class="single-testimonial pt-65">
+                            <!-- Testimonial tittle -->
+                            <div class="font-back-tittle mb-105">
+                                <div class="archivment-front">
+                                    <img src="/img/logo/@item.Photo" alt="">
+                                </div>
+                                <h3 class="archivment-back">Testimonial</h3>
+                            </div>
+                            <!-- Testimonial Content -->
+                            <div class="testimonial-caption text-center">
+                                <p>
+                                    @item.Commentaire
+                                </p>
+                                <!-- Rattion -->
+                                @if (item.Note == 0)
+                                {
+                                    <div class="testimonial-ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                }
+                                else if (item.Note == 1)
+                                {
+                                    <div class="testimonial-ratting">
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                    </div>
+
+                                }
+                                else if (item.Note == 2)
+                                {
+                                    <div class="testimonial-ratting">
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                    </div>
+
+                                }
+                                else if (item.Note == 3)
+                                {
+                                    <div class="testimonial-ratting">
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                    </div>
+
+                                }
+                                else if (item.Note == 4)
+                                {
+                                    <div class="testimonial-ratting">
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-grey-custom"></i>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="testimonial-ratting">
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                        <i class="fas fa-star stars-yellow-custom"></i>
+                                    </div>
+
+                                }
+                                <div class="rattiong-caption">
+                                    <span>@item.Nom<span>@item.Fidelite</span> </span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

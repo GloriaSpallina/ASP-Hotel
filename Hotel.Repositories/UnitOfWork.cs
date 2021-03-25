@@ -23,6 +23,7 @@ namespace Hotel.Repositories
         IConcreteRepository<ThemeEntity> _themeRepo;
         IConcreteRepository<ClientEntity> _clientRepo;
         IConcreteRepository<ReservationEntity> _reservationRepo;
+        IConcreteRepository<CommentaireArticleEntity> _commentaireRepo;
 
         #endregion
 
@@ -38,8 +39,10 @@ namespace Hotel.Repositories
             _themeRepo = new ThemeRepository(connectionString);
             _clientRepo = new ClientRepository(connectionString);
             _reservationRepo = new ReservationRepository(connectionString);
+            _commentaireRepo = new CommentaireArticleRepository(connectionString);
         }
 
+        #region Hotel
         public List<SliderModel> GetPhotoHotel(int idHotel)
         {
             return ((HotelPhotoRepository)_hotelPhotoRepo).GetPhotoHotel(idHotel).Select(item => new SliderModel() { LienPhoto = item.Photo }).ToList();
@@ -79,7 +82,8 @@ namespace Hotel.Repositories
                     PhotoChambre = item.Photo
                 }
                 ).ToList();
-        }
+        } 
+        #endregion
 
         #region Blog
 
@@ -93,6 +97,7 @@ namespace Hotel.Repositories
                 .Select(item =>
                 new ArticleModel()
                 {
+                    IdBlog = item.IdArticleBlog,
                     Photo = item.Photo,
                     NomAuteur = item.Nom,
                     PrenomAuteur = item.Prenom,
@@ -109,6 +114,7 @@ namespace Hotel.Repositories
                 .Select(item =>
                 new ArticleModel()
                 {
+                    IdBlog = item.IdArticleBlog,
                     Photo = item.Photo,
                     DateArticle = item.Date,
                     Titre = item.Titre,
@@ -155,6 +161,66 @@ namespace Hotel.Repositories
                 ).ToList();
         }
 
+        public ArticleModel GetArticleEntier(int idArticle)
+        {
+            ArticleBlogEntity abe = _articleRepo.GetOne(idArticle);
+
+            ArticleModel am = new ArticleModel();
+            am.IdBlog = abe.IdArticleBlog;
+            am.Titre = abe.Titre;
+            am.Categorie = abe.Themes;
+            am.Photo = abe.Photo;
+            am.NombreCommentaire = abe.NBComment;
+            am.Para1 = abe.Pargraphe1;
+            am.Para2 = abe.Pargraphe2;
+            am.Para3 = abe.Pargraphe3;
+            am.Para4 = abe.Pargraphe4;
+            am.EvidenceTexte = abe.TexteEvidence;
+            am.NomAuteur = abe.Nom;
+            am.PrenomAuteur = abe.Prenom;
+            am.TextAuteur = abe.Description;
+            am.PhototAuteur = abe.PhotoAuteur;
+
+            return am;
+        }
+
+        public List<CommentaireModel> GetComments (int idArticle)
+        {
+            return ((CommentaireArticleRepository)_commentaireRepo).GetCom(idArticle)
+                .Select(com =>
+                new CommentaireModel()
+                {
+                    Commentaire = com.Commentaire,
+                    DateHeureCommentaire = com.Date,
+                    Nom = com.Nom,
+                    Prenom = com.Prenom,
+                    Photo = com.Photo
+                }
+                ).ToList();
+                
+        }
+        public ArticleModel GetPreviousTitle(int idArticle)
+        {
+            ArticleBlogEntity ae = _articleRepo.GetOne(idArticle);
+
+            ArticleModel am = new ArticleModel();
+            am.IdBlog = ae.IdArticleBlog;
+            am.Titre = ae.Titre;
+            am.Photo = ae.Photo;
+            return am;
+        }
+
+
+        public ArticleModel GetNextTitle(int idArticle)
+        {
+            ArticleBlogEntity abe = _articleRepo.GetOne(idArticle);
+            ArticleModel am = new ArticleModel();
+            am.IdBlog = abe.IdArticleBlog;
+            am.Titre = abe.Titre;
+            am.Photo = abe.Photo;
+            return am;
+        }
+
         #endregion
 
 
@@ -179,7 +245,7 @@ namespace Hotel.Repositories
         {
             ClientEntity clientEntity = new ClientEntity()
             {
-                IdClient = cl.IdClient,
+                //IdClient = cl.IdClient,
                 Nom = cl.Nom,
                 Prenom = cl.Prenom,
                 Login = cl.Login,
@@ -225,9 +291,9 @@ namespace Hotel.Repositories
             }
         }
 
-        public List<ReservationModel> GetReservation(string Loging)
+        public List<ReservationModel> GetReservation(int idClient)
         {
-            return ((ReservationRepository)_reservationRepo).GetAllFromClient(Loging)
+            return ((ReservationRepository)_reservationRepo).GetAllFromClient(idClient)
                 .Select(item =>
                 new ReservationModel()
                 {
@@ -246,9 +312,22 @@ namespace Hotel.Repositories
                 ).ToList();
         }
 
-        public bool AddReservation(ReservationModel rm)
+        public bool AddReservation(ReservationModel rm, int idClient)
         {
-            return true;
+            ReservationEntity re = new ReservationEntity()
+            {
+                DateDebutSejour = rm.Datedebut,
+                DateFinSejour = rm.Datefin,
+                NombreAdulte = rm.Nombreadulte,
+                NombreEnfant = rm.Nombreadulte,
+                IdChambre = 2, // à changer.
+                IdClient = rm.IdClient,
+                Statut = true,
+                AssuranceAnnulation = true
+                
+                
+            };
+            return _reservationRepo.Insert(re);
         }
 
         #endregion

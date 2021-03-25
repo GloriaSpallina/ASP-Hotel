@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_CLIENT_INSERT]
+﻿CREATE PROCEDURE [dbo].[SP_CLIENT_Insert]
     @MotDePasse NVARCHAR(MAX),
 	@Nom NVARCHAR(64), 
     @Prenom NVARCHAR(64), 

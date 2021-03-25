@@ -11,7 +11,8 @@ AS
     IF (@newMotDePasse = @hMotDePasse)
     BEGIN 
         --SELECT [Login], Nom, Prenom, DateNaiss, Photo, Email, IdUtilisateur FROM Utilisateur WHERE login=@login 
-    select [Login], Nom, Prenom, Email, Photo,Telephone, Rue, Numero, Ville, Pays
+    select IdClient,[Login], Nom, Prenom, Email, Photo,Telephone, Rue, Numero, Ville, Pays
     FROM Client
+	WHERE [Login]= @Login and MotDePasse=@newMotDePasse 
     END
 

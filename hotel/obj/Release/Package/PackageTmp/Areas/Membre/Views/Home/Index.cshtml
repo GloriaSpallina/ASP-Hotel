@@ -1,0 +1,154 @@
+﻿@model hotel.Models.MembreViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="whole-wrap">
+    <div class="container box_1170">
+        <div class="section-top-border">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h2>Zone Membre</h2>
+                    <p> Bienvenue @hotel.Infra.SessionUtils.ConnectedUser.Login ! </p>
+                    @hotel.Infra.SessionUtils.ConnectedUser.Nom
+                    <h3>Mes infos personnelles</h3>
+                    <form action="#" method="post">
+
+                        <div class="mt-10">
+                            @Html.EditorFor(model => model.CurrentClient.Prenom, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Name" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Prenom, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="mt-10">
+                            @Html.EditorFor(model => model.CurrentClient.Nom, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Last name" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Nom, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="mt-10">
+                            @Html.EditorFor(model => model.CurrentClient.Login, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Login" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Login, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.MotDePasse, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Password", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.MotDePasse, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.ConfirmMotDePasse, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Confirm Password", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.ConfirmMotDePasse, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.Email, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Email, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.Telephone, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Phone" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Telephone, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.Rue, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Street" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Rue, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.Numero, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "N°" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Numero, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.Ville, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "City" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Ville, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.Pays, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Country" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Pays, "", new { @class = "text-danger" })
+
+                        </div>
+
+
+
+
+
+                        <div class="mt-10">
+
+                            @Html.EditorFor(model => model.CurrentClient.Photo, new { htmlAttributes = new { @class = "single-input-secondary", @placeholder = "Photo" } })
+                            @Html.ValidationMessageFor(model => model.CurrentClient.Photo, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="mt-10">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Update" class="button button-contactForm boxed-btn" />
+                            </div>
+                        </div>
+                    </form>
+                    <br />
+                    <hr />
+                    <br />
+                    <h3>Mes réservations</h3>
+
+                    @foreach (Hotel.Models.ReservationModel item in Model.Rm)
+                    {
+                        if (item.Login == hotel.Infra.SessionUtils.ConnectedUser.Login)
+                        {
+                            <div class="card">
+                                <h5 class="card-header">@item.Typechambre du @item.Datedebut  au @item.Datefin .</h5>
+                                <div class="card-body">
+                                    <img src="~/img/gallery/@item.Photochambre" />
+
+                                    <p class="card-text">Chambre réservée le @item.Datereservation pour @item.Nombreadulte adulte(s) et @item.Nombreenfant enfant(s).</p>
+                                    <p>Prix de la chambre : @item.Prix</p>
+
+                                </div>
+                            </div>
+
+                        }
+
+
+
+                    }
+
+                    <hr />
+
+
+                    <h3>Booking</h3>
+
+                    <hr />
+
+                    <h3>Commentaires</h3>
+
+                    <h4>Commentaires blog</h4>
+
+
+                    <hr />
+
+                    <h3>Note Séjour</h3>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ArticleBlogRepository.cs" />
     <Compile Include="ClientRepository.cs" />
+    <Compile Include="CommentaireArticleRepository.cs" />
     <Compile Include="CompanyHotelRepository.cs" />
     <Compile Include="HotelPhotoRepository.cs" />
     <Compile Include="MessageRepository.cs" />

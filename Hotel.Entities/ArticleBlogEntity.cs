@@ -8,11 +8,11 @@ namespace Hotel.Entities
 {
     public class ArticleBlogEntity
     {
-        private int IdArticleBlog,  _idHotel, _idAuteurArticle, _NBComment;
-        private string _photo, _titre, _accroche, _contenuArticle, _texteEvidence, _pargraphe1, _pargraphe2, _pargraphe3, _pargraphe4, _nom,_prenom,_themes;
+        private int _idArticleBlog,  _idHotel, _idAuteurArticle, _NBComment;
+        private string _photo, _titre, _accroche, _contenuArticle, _texteEvidence, _pargraphe1, _pargraphe2, _pargraphe3, _pargraphe4, _nom,_prenom,_themes, _photoAuteur, _description;
         private DateTime _date;
 
-        public int IdArticleBlog1 { get => IdArticleBlog; set => IdArticleBlog = value; }
+
         public int IdHotel { get => _idHotel; set => _idHotel = value; }
         public int IdAuteurArticle { get => _idAuteurArticle; set => _idAuteurArticle = value; }
         public string Photo { get => _photo; set => _photo = value; }
@@ -29,5 +29,9 @@ namespace Hotel.Entities
         public int NBComment { get => _NBComment; set => _NBComment = value; }
         public DateTime Date { get => _date; set => _date = value; }
         public string Themes { get => _themes; set => _themes = value; }
+        public int IdArticleBlog { get => _idArticleBlog; set => _idArticleBlog = value; }
+        public string PhotoAuteur { get => _photoAuteur; set => _photoAuteur = value; }
+       
+        public string Description { get => _description; set => _description = value; }
     }
 }

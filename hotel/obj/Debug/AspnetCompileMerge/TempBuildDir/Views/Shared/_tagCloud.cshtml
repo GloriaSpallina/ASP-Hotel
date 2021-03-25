@@ -1,0 +1,17 @@
+﻿@using (Html.BeginForm("Blog", "Home", FormMethod.Get))
+{
+    <aside class="single_sidebar_widget tag_cloud_widget">
+        <h4 class="widget_title">Tag Clouds</h4>
+        <ul class="list">
+            @foreach (hotel.Models.CategorieModel item in Model)
+            {
+
+            <li>
+                
+                @Html.ActionLink(@item.Nom, "Blog", new { searchTheme = @item.Nom })
+            </li>
+            }
+
+        </ul>
+    </aside>
+}

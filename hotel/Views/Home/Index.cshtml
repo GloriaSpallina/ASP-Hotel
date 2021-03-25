@@ -197,7 +197,8 @@
                                     <ul><li>by<a href="#"> @item.NomAuteur @item.PrenomAuteur</a></li></ul>
                                 </div>
                                 <div class="blog-cap-mid">
-                                    <p><a href="@item.LienArticle">@item.Titre</a></p>
+                                    <h3>id : @item.IdBlog</h3>
+                                    <p><a href="@Url.Action("SingleBlog", "Home", new { idArticle = item.IdBlog })">@item.Titre</a></p>
                                 </div>
                                 <!-- Comments -->
                                 <div class="blog-cap-bottom d-flex justify-content-between">

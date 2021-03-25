@@ -14,7 +14,7 @@ namespace hotel.Areas.Membre.Controllers
 {
     public class HomeController : Controller
     {
-        //UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
+        UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
         // GET: Membre/Home
         public ActionResult Index()
         {
@@ -32,39 +32,39 @@ namespace hotel.Areas.Membre.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-       //[HttpGet]
-       // public ActionResult Booking()
-       // {
-       //     if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
+        [HttpGet]
+        public ActionResult Booking()
+        {
+            if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
+            ReservationViewModel rvm = new ReservationViewModel();
+            return View(rvm);
+        }
 
-       //     return View(SessionUtils.ConnectedUser);
-       // }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Booking(ReservationModel rm)
+        {
+            if (ModelState.IsValid)
+            {
+                if (uow.AddReservation(rm, SessionUtils.ConnectedUser.IdClient))
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Membre" });
+                }
+                else
+                {
+                    ViewBag.Error = "Reservation impossible !";
+                    return View(rm);
+                }
+            }
+            else
+            {
+                ViewBag.Error = "Bien remplir le formulaire !";
+                return View(rm);
+            }
 
-       // [HttpPost]
-       // [ValidateAntiForgeryToken]
-       // public ActionResult Booking(ReservationModel rm)
-       // {
-       //     if (ModelState.IsValid)
-       //     {
-       //         if (uow.AddReservation(rm))
-       //         {
-       //             return RedirectToAction("Index", "Home", new { area = "Membre" });
-       //         }
-       //         else
-       //         {
-       //             ViewBag.Error = "Reservation impossible !";
-       //             return View(rm);
-       //         }
-       //     }
-       //     else
-       //     {
-       //         ViewBag.Error = "Bien remplir le formulaire !";
-       //         return View(rm);
-       //     }
-            
-       // }
+        }
 
-       
+
 
     }
 }

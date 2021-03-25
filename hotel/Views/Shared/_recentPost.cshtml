@@ -4,9 +4,9 @@
     {
 
         <div class="media post_item">
-            <img src="/img/post/@item.Photo" alt="post">
+            <img src="/img/blog/@item.Photo" alt="post" style="height: 80px; width: 80px;">
             <div class="media-body">
-                <a href="@item.LienArticle">
+                <a href="@Url.Action("SingleBlog", "Home", new { idArticle = @item.IdBlog})">
                     <h3>@item.Titre</h3>
                 </a>
                 <p>@item.DateArticle.ToString("MMMM dd, yyyy")</p>

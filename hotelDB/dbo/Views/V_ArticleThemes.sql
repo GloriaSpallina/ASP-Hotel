@@ -3,7 +3,7 @@ AS
 SELECT TOP (100) PERCENT dbo.ArticleBlog.Titre, dbo.ArticleBlog.Photo, dbo.ArticleBlog.Date, dbo.ArticleBlog.Accroche, dbo.AuteurArticle.Nom, dbo.AuteurArticle.Prenom,
                       (SELECT COUNT(*) AS Expr1
                        FROM      dbo.CommentaireArticle
-                       WHERE   (dbo.ArticleBlog.IdArticleBlog = IdArticleBlog)) AS NBComment, dbo.FN_GETTHEME(dbo.ArticleBlog.IdArticleBlog) AS Themes
+                       WHERE   (dbo.ArticleBlog.IdArticleBlog = IdArticleBlog)) AS NBComment, dbo.FN_GETTHEME(dbo.ArticleBlog.IdArticleBlog) AS Themes, dbo.ArticleBlog.IdArticleBlog
 FROM     dbo.ArticleBlog LEFT OUTER JOIN
                   dbo.AuteurArticle ON dbo.ArticleBlog.IdAuteurArticle = dbo.AuteurArticle.IdAuteurArticle
 ORDER BY dbo.ArticleBlog.Date DESC
@@ -17,7 +17,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+         Configuration = "(H (1[41] 4[20] 2[35] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -87,18 +87,18 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 7
                Left = 48
-               Bottom = 170
-               Right = 243
+               Bottom = 308
+               Right = 309
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "AuteurArticle"
             Begin Extent = 
-               Top = 175
-               Left = 48
-               Bottom = 338
-               Right = 243
+               Top = 35
+               Left = 401
+               Bottom = 251
+               Right = 608
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -126,14 +126,14 @@ Begin DesignProperties =
       Begin ColumnWidths = 11
          Column = 1440
          Alias = 900
-         Table = 1170
+         Table = 1176
          Output = 720
          Append = 1400
          NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
+         SortType = 1356
+         SortOrder = 1416
          GroupBy = 1350
-         Filter = 1350
+         Filter = 1356
          Or = 1350
          Or = 1350
          Or = 1350
@@ -141,4 +141,6 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'V_ArticleThemes';
+
+
 

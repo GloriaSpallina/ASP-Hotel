@@ -1,0 +1,114 @@
+﻿
+<nav class="blog-pagination justify-content-center d-flex">
+    <ul class="pagination">
+
+
+        @{
+            int MaxPage = ViewData["MaxPage"] == null ? 0 : int.Parse(ViewData["MaxPage"].ToString());
+            int prev = 0, next = 0, current = 1;
+            ViewBag.Title = "Reviews";
+            string URLprev = Request.Url.AbsoluteUri;
+            string URLnext = Request.Url.AbsoluteUri;
+            string URLClean = Request.Url.AbsoluteUri;
+            if (Request.QueryString.HasKeys())
+            {
+
+
+                if (Request.Params["page"] != null)
+                {
+                    current = int.Parse(Request.QueryString["Page"]);
+                    prev = current - 1;
+                    next = current + 1;
+                    URLClean = URLClean.Substring(0, URLClean.IndexOf("Page")).Replace("&", "");
+                    URLprev = URLprev.Substring(0, URLprev.IndexOf("Page")) + "&Page=" + prev.ToString();
+                    URLnext = URLnext.Substring(0, URLnext.IndexOf("Page")) + "&Page=" + next.ToString();
+                }
+                else
+                {
+                    URLprev += "&Page=1";
+                    URLnext += "&Page=2";
+                }
+
+            }
+            else
+            {
+                URLprev += "?Page=1";
+                URLnext += "?Page=2";
+            }
+
+            if (prev > 0)
+            {
+                <li class="page-item">
+                    <a href="@URLprev" class="page-link" aria-label="Previous">
+                        <i class="ti-angle-left"></i>
+                    </a>
+                </li>
+
+            }
+            for (int i = current - 5; i < current && i < MaxPage; i++)
+            {
+                if (i > 0)
+                {
+                    if (Request.QueryString.HasKeys())
+                    {
+                        <li class="page-item">
+                            <a href="@URLClean&Page=@i" class="page-link">@i</a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a href="@URLClean?Page=@i" class="page-link">@i</a>
+                        </li>
+
+                    }
+                }
+
+            }
+            if (Request.QueryString.HasKeys())
+            {
+
+                <li class="page-item">
+                    <a href="@URLClean&Page=@current" class="page-link">@current</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a href="@URLClean?Page=@current" class="page-link">@current</a>
+                </li>
+
+            }
+            for (int i = current + 1; i < current + 5 && i < MaxPage; i++)
+            {
+                if (Request.QueryString.HasKeys())
+                {
+
+                    <li class="page-item">
+                        <a href="@URLClean&Page=@i" class="page-link">@i</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a href="@URLClean?Page=@i" class="page-link">@i</a>
+                    </li>
+
+                }
+
+            }
+
+            if (next < MaxPage)
+            {
+                <li class="page-item">
+                    <a href="@URLnext" class="page-link" aria-label="Next">
+                        <i class="ti-angle-right"></i>
+                    </a>
+                </li>
+
+            }
+        }
+    </ul>
+</nav>

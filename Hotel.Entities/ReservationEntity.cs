@@ -9,7 +9,7 @@ namespace Hotel.Entities
     public class ReservationEntity
     {
         private DateTime _dateReservation, _dateDebutSejour, _dateFinSejour;
-        private int _nombreAdulte, _nombreEnfant, _idClient, _numeroChambre, _capacite;
+        private int _nombreAdulte, _nombreEnfant, _idClient, _numeroChambre, _capacite, _idChambre;
         private string _nomChambre, _descriptionCourte, _photoTypeChambre, _nomTypeChambre, _login;
         private bool _assuranceAnnulation, _statut;
         private double _prix;
@@ -30,5 +30,6 @@ namespace Hotel.Entities
         public bool Statut { get => _statut; set => _statut = value; }
         public double Prix { get => _prix; set => _prix = value; }
         public string Login { get => _login; set => _login = value; }
+        public int IdChambre { get => _idChambre; set => _idChambre = value; }
     }
 }

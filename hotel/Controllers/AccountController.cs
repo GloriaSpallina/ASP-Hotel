@@ -91,7 +91,7 @@ namespace hotel.Controllers
                 else
                 {
                     ViewBag.Error = "Pas en DB";
-                    return View(cl);
+                    return View("Login");
                 }
             }
             else

@@ -1,0 +1,41 @@
+﻿@model hotel.Models.ServiceViewModel
+@{
+    ViewBag.Title = "Services";
+}
+
+
+
+<main>
+
+    <!-- slider Area Start-->
+    <div class="slider-area">
+        <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="/img/hero/servicespage_hero.jpg">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-11 offset-xl-1 offset-lg-1 offset-md-1">
+                        <div class="hero-caption">
+                            <span>@ViewBag.Title</span>
+                            <h2>@ViewBag.Title</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+    <!-- Dining Start -->
+    @{
+        Html.RenderPartial("~/Views/Shared/_services.cshtml", Model.Services);
+    }
+    <!-- Dining End -->
+    <!-- Testimonial Start -->
+    @{
+        Html.RenderPartial("~/Views/Shared/_testimonial.cshtml", Model.TemoignagesService);
+    }
+    <!-- Testimonial End -->
+    <!-- Gallery img Start-->
+    @{
+        Html.RenderPartial("~/Views/Shared/_slider.cshtml", Model.SliderRoomSer);
+    }
+    <!-- Gallery img End-->
+</main>

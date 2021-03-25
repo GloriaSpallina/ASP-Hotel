@@ -3,7 +3,7 @@ AS
 SELECT TOP (3) dbo.ArticleBlog.Titre, dbo.ArticleBlog.Photo, dbo.ArticleBlog.Date, dbo.AuteurArticle.Nom, dbo.AuteurArticle.Prenom,
                       (SELECT COUNT(*) AS Expr1
                        FROM      dbo.CommentaireArticle
-                       WHERE   (dbo.ArticleBlog.IdArticleBlog = IdArticleBlog)) AS NBComment
+                       WHERE   (dbo.ArticleBlog.IdArticleBlog = IdArticleBlog)) AS NBComment, dbo.ArticleBlog.IdArticleBlog
 FROM     dbo.ArticleBlog LEFT OUTER JOIN
                   dbo.AuteurArticle ON dbo.ArticleBlog.IdAuteurArticle = dbo.AuteurArticle.IdAuteurArticle
 ORDER BY dbo.ArticleBlog.Date DESC
@@ -17,7 +17,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[25] 4[36] 2[20] 3) )"
+         Configuration = "(H (1[47] 4[15] 2[20] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -83,22 +83,22 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "ArticleBlog"
-            Begin Extent = 
-               Top = 7
-               Left = 48
-               Bottom = 170
-               Right = 243
-            End
-            DisplayFlags = 280
-            TopColumn = 9
-         End
          Begin Table = "AuteurArticle"
             Begin Extent = 
                Top = 7
                Left = 580
                Bottom = 170
                Right = 775
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "ArticleBlog"
+            Begin Extent = 
+               Top = 7
+               Left = 48
+               Bottom = 245
+               Right = 255
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -130,6 +130,8 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'V_ArticleTop3';
+
+
 
 
 

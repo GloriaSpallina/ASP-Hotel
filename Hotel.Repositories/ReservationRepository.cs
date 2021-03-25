@@ -30,17 +30,19 @@ namespace Hotel.Repositories
             throw new NotImplementedException();
         }
 
-        public List<ReservationEntity> GetAllFromClient(string login)
+        public List<ReservationEntity> GetAllFromClient(int idClient)
         {
             //Dictionary<string, object> p = new Dictionary<string, object>();
             //p.Add("login", login);
-            string requete = "SELECT * FROM V_ReservationFullInfo WHERE [Login]='"+login+"'";
+            string requete = "SELECT * FROM V_ReservationFullInfo WHERE [IdClient]=" + idClient;
             return base.Get(requete); 
         }
 
         public bool Insert(ReservationEntity toInsert)
         {
-            throw new NotImplementedException();
+            string requete = @"INSERT INTO Reservation (IdClient, IdChambre, DateDebutSejour, DateFinSejour, NombreAdulte, NombreEnfant, Statut, AssuranceAnnulation, DateReservation) 
+                            VALUES (@IdClient, @IdChambre, @DateDebutSejour, @DateFinSejour, @NombreAdulte, @NombreEnfant, @Status, @AssureanceAnnulation, GetDate())";
+            return base.Insert(toInsert, requete);
         }
 
         public bool Update(ReservationEntity toUpdate)

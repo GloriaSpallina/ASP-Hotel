@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Cnstr-Web.config Connection String" description="Cnstr Chaîne de connexion utilisée dans web.config par l’application pour accéder à la base de données." defaultValue="Data Source=LAPTOP-R3RC1S8D\SQLSERVER;Initial Catalog=HotelDbD;User ID=HotelUserOk;Password=HotelUserOk;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Glori\\source\\repos\\hotel\\hotel\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Cnstr']/@connectionString" />
+  </parameter>
+</parameters>

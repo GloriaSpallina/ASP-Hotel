@@ -50,7 +50,20 @@ namespace Hotel.Repositories
 
         public ArticleBlogEntity GetOne(int PK)
         {
-            throw new NotImplementedException();
+            string requete = "exec SP_GetArticleById " + PK;
+            return base.GetOne(PK, requete);
+        }
+
+        public ArticleBlogEntity GetPrevious(int PK)
+        {
+            string requete = "exec SP_GetArticleById " + PK;
+            return base.GetOne(PK, requete);
+        }
+
+        public ArticleBlogEntity GetNext(int PK)
+        {
+            string requete = "exec SP_GetArticleById " + PK;
+            return base.GetOne(PK, requete);
         }
 
         public bool Insert(ArticleBlogEntity toInsert)

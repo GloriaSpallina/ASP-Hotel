@@ -1,0 +1,97 @@
+﻿@model hotel.Models.BlogViewModel
+@{
+    ViewBag.Title = "Blog";
+}
+
+<!-- slider Area Start-->
+<div class="slider-area">
+    <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="/img/hero/contact_hero.jpg">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-11 offset-xl-1 offset-lg-1 offset-md-1">
+                    <div class="hero-caption">
+                        <span>@ViewBag.Title</span>
+                        <h2>Our Blog</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+<!--================Blog Area =================-->
+<section class="blog_area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    @foreach (hotel.Models.ArticleModel item in Model.ArticleBlog)
+                    {
+
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="card-img rounded-0" src="/img/blog/@item.Photo" alt="">
+                                <a href="#" class="blog_item_date">
+                                    <h3>@item.DateArticle.Day</h3>
+                                    <p>@item.DateArticle.ToString("MMM")</p>
+                                </a>
+                            </div>
+
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="/Home/SingleBlog">
+                                    <h2>@item.Titre</h2>
+                                </a>
+                                <p>
+                                    @item.Resume
+                                </p>
+                                <ul class="blog-info-link">
+                                    <li><a href="#"><i class="fa fa-user"></i> @item.Categorie</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i> @item.NombreCommentaire Comments</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    }
+
+
+                    @{
+                        Html.RenderPartial("~/Views/Shared/_paginate.cshtml", new ViewDataDictionary { { "MaxPage", Model.MaxPage } });
+                    }
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+
+                    @{Html.RenderPartial("~/Views/Shared/_searchWidget.cshtml");}
+                    @{Html.RenderPartial("~/Views/Shared/_listeCategories.cshtml", Model.ListeCategories);}
+                    @{Html.RenderPartial("~/Views/Shared/_recentPost.cshtml", Model.RecentPost);}
+                    @{Html.RenderPartial("~/Views/Shared/_tagCloud.cshtml", Model.TagCloud);}
+                    @{Html.RenderPartial("~/Views/Shared/_instaPost.cshtml", Model.InstaPost);}
+                    @{Html.RenderPartial("~/Views/Shared/_newsletterWidget.cshtml");}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->
+
+
+<script>
+    $('#datepicker').datepicker({
+        iconsLibrary: 'fontawesome',
+        disableDaysOfWeek: [0, 0],
+        //     icons: {
+        //      rightIcon: '<span class="fa fa-caret-down"></span>'
+        //  }
+    });
+    $('#datepicker2').datepicker({
+        iconsLibrary: 'fontawesome',
+        icons: {
+            rightIcon: '<span class="fa fa-caret-down"></span>'
+        }
+
+    });
+    var timepicker = $('#timepicker').timepicker({
+        format: 'HH.MM'
+    });
+</script>
+

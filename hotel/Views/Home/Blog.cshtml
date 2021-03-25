@@ -33,12 +33,13 @@
                                 <img class="card-img rounded-0" src="/img/blog/@item.Photo" alt="">
                                 <a href="#" class="blog_item_date">
                                     <h3>@item.DateArticle.Day</h3>
+
                                     <p>@item.DateArticle.ToString("MMM")</p>
                                 </a>
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="/Home/SingleBlog">
+                                <a class="d-inline-block" href="@Url.Action("SingleBlog", "Home", new { idArticle = item.IdBlog })">
                                     <h2>@item.Titre</h2>
                                 </a>
                                 <p>

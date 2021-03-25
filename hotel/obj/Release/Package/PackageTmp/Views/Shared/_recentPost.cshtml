@@ -1,0 +1,16 @@
+﻿<aside class="single_sidebar_widget popular_post_widget">
+    <h3 class="widget_title">Recent Post</h3>
+    @foreach (hotel.Models.ArticleModel item in Model)
+    {
+
+        <div class="media post_item">
+            <img src="/img/post/@item.Photo" alt="post">
+            <div class="media-body">
+                <a href="@item.LienArticle">
+                    <h3>@item.Titre</h3>
+                </a>
+                <p>@item.DateArticle.ToString("MMMM dd, yyyy")</p>
+            </div>
+        </div>
+    }
+</aside>

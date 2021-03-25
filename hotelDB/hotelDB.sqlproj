@@ -63,6 +63,7 @@
     <Folder Include="dbo\FonctionScalaires" />
     <Folder Include="dbo\ProcedureStockees" />
     <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\tables\Message.sql" />
@@ -94,6 +95,9 @@
     <Build Include="dbo\ProcedureStockees\SP_CHECK_PASSWORD.sql" />
     <Build Include="dbo\Views\V_ArticleThemes.sql" />
     <Build Include="dbo\Functions\FN_GETTHEME.sql" />
+    <Build Include="dbo\Views\V_ReservationFullInfo_2.sql" />
+    <Build Include="dbo\Stored Procedures\SP_GetCommentsByArticle.sql" />
+    <Build Include="dbo\Stored Procedures\SP_GetArticleById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="hotelDB.jfm" />

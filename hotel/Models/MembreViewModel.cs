@@ -16,13 +16,15 @@ namespace hotel.Models
 
         public ClientModel CurrentClient { get; set; }
         public List<ReservationModel> Rm { get; set; }
+   
 
 
 
         public MembreViewModel()
         {
             CurrentClient = SessionUtils.ConnectedUser;
-            Rm = uow.GetReservation(CurrentClient.Login);
+            Rm = uow.GetReservation(CurrentClient.IdClient);
+            
         }
 
 

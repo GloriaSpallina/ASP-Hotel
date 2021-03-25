@@ -1,0 +1,69 @@
+﻿** Met en surbrillance
+     Tables à reconstruire
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Créer
+       [dbo].[ArticleBlog] (Table)
+       [dbo].[AuteurArticle] (Table)
+       [dbo].[Chambre] (Table)
+       [dbo].[Client] (Table)
+       [dbo].[CommentaireArticle] (Table)
+       [dbo].[CompanyHotel] (Table)
+       [dbo].[Equipement] (Table)
+       [dbo].[EquipementTypeChambre] (Table)
+       [dbo].[Evaluation] (Table)
+       [dbo].[Facture] (Table)
+       [dbo].[Hotel] (Table)
+       [dbo].[HotelPhoto] (Table)
+       [dbo].[Message] (Table)
+       [dbo].[PhotoTypeChambre] (Table)
+       [dbo].[Reservation] (Table)
+       [dbo].[Service] (Table)
+       [dbo].[ServiceHotel] (Table)
+       [dbo].[Theme] (Table)
+       [dbo].[ThemeArticle] (Table)
+       [dbo].[TypeChambre] (Table)
+       [dbo].[FK_ArticleBlog_ToHotel] (Clé étrangère)
+       [dbo].[FK_ArticleBlog_ToAuteurArticle] (Clé étrangère)
+       [dbo].[FK_Chambre_ToHotel] (Clé étrangère)
+       [dbo].[FK_Chambre_ToTypeChambre] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToClient] (Clé étrangère)
+       [dbo].[FK_CommentaireArticle_ToArticleBlog] (Clé étrangère)
+       [dbo].[FK_EquipementChambre_ToChambre] (Clé étrangère)
+       [dbo].[FK_EquipementTypeChambre_ToEquipement] (Clé étrangère)
+       [dbo].[FK_Evaluation_ToChambre] (Clé étrangère)
+       [dbo].[FK_Evaluation_ToClient] (Clé étrangère)
+       [dbo].[FK_Facture_ToClient] (Clé étrangère)
+       [dbo].[FK_Hotel_ToCompagnieHotel] (Clé étrangère)
+       [dbo].[FK_HotelPhoto_ToHotel] (Clé étrangère)
+       [dbo].[FK_PhotoCategorieChambre_CategorieChambre] (Clé étrangère)
+       [dbo].[FK_Reservation_ToChambre] (Clé étrangère)
+       [dbo].[FK_Reservation_ToClient] (Clé étrangère)
+       [dbo].[FK_ServiceHotel_ToHotel] (Clé étrangère)
+       [dbo].[FK_ServiceHotel_ToService] (Clé étrangère)
+       [dbo].[FK_ThemeArticle_ToTheme] (Clé étrangère)
+       [dbo].[FK_ThemeArticle_ToArticleBlog] (Clé étrangère)
+       [dbo].[V_ArticleTop3] (Vue)
+       [dbo].[V_GetRandom] (Vue)
+       [dbo].[V_Room] (Vue)
+       [dbo].[FN_GETTHEME] (Fonction)
+       [dbo].[SF_EncryptedPassword] (Fonction)
+       [dbo].[SF_GenerateSalt] (Fonction)
+       [dbo].[V_ArticleThemes] (Vue)
+       [dbo].[SP_Check_Password] (Procédure)
+       [dbo].[SP_CLIENT_INSERT] (Procédure)
+       [dbo].[V_ArticleThemes].[MS_DiagramPaneCount] (Propriété étendue)
+       [dbo].[V_ArticleThemes].[MS_DiagramPane1] (Propriété étendue)
+       [dbo].[V_ArticleTop3].[MS_DiagramPaneCount] (Propriété étendue)
+       [dbo].[V_ArticleTop3].[MS_DiagramPane1] (Propriété étendue)
+       [dbo].[V_Room].[MS_DiagramPaneCount] (Propriété étendue)
+       [dbo].[V_Room].[MS_DiagramPane1] (Propriété étendue)
+
+** Actions de support
