@@ -24,6 +24,13 @@ namespace hotel.Areas.Membre.Controllers
             return View(mvm);
         }
 
+        public ActionResult ModifierInfos()
+        {
+            if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
+            MembreViewModel mvm = new MembreViewModel();
+            return View(mvm);
+        }
+
         [HttpGet]
         public ActionResult Logout()
         {

@@ -221,6 +221,19 @@ namespace Hotel.Repositories
             return am;
         }
 
+        public bool AddComment(CommentaireModel cm, int idClient, int idArticle)
+        {
+            CommentaireArticleEntity cae = new CommentaireArticleEntity()
+            {
+                Commentaire = cm.Commentaire,
+                IdClient = idClient,
+                IdArticleBlog = idArticle,
+                Date = DateTime.Now,
+         };
+            
+            return _commentaireRepo.Insert(cae);
+        }
+
         #endregion
 
 

@@ -1,4 +1,6 @@
-﻿using Hotel.Repositories;
+﻿using hotel.Infra;
+using Hotel.Models;
+using Hotel.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,6 +22,7 @@ namespace hotel.Models
         private List<ArticleModel> _InstaPostSB;
         private int _maxArticle;
         private UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
+        private CommentaireModel _addComments;
 
         #endregion
 
@@ -33,6 +36,8 @@ namespace hotel.Models
             RecentPostSB = uow.GetCardArticleTop();
             MaxArticle = uow.CountArticles();
             CommentsAricle = uow.GetComments(idArticle);
+            
+           
 
 
 
@@ -56,6 +61,8 @@ namespace hotel.Models
         public List<CategorieModel> TagCloudSB { get => _TagCloudSB; set => _TagCloudSB = value; }
         public List<ArticleModel> InstaPostSB { get => _InstaPostSB; set => _InstaPostSB = value; }
         public int MaxArticle { get => _maxArticle; set => _maxArticle = value; }
+       
+        public CommentaireModel AddComments { get => _addComments; set => _addComments = value; }
         #endregion
     }
 }

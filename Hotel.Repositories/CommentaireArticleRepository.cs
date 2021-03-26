@@ -34,7 +34,9 @@ namespace Hotel.Repositories
 
         public bool Insert(CommentaireArticleEntity toInsert)
         {
-            throw new NotImplementedException();
+            string requete = @"INSERT INTO CommentaireArticle (Commentaire, Date, IdClient, IdArticleBlog)
+                                VALUES (@Commentaire, GETDATE(), @IdClient, @IdArticleBlog)";
+            return base.Insert(toInsert, requete);
         }
 
         public bool Update(CommentaireArticleEntity toUpdate)

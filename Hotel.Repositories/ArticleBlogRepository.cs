@@ -51,6 +51,11 @@ namespace Hotel.Repositories
         public ArticleBlogEntity GetOne(int PK)
         {
             string requete = "exec SP_GetArticleById " + PK;
+            if (PK == 0)
+            {
+                requete = "exec SP_GetArticleById 1";
+            }
+          
             return base.GetOne(PK, requete);
         }
 

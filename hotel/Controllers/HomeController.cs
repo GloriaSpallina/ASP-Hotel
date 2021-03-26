@@ -1,4 +1,5 @@
-﻿using hotel.Models;
+﻿using hotel.Infra;
+using hotel.Models;
 using Hotel.Models;
 using Hotel.Repositories;
 using System;
@@ -112,6 +113,31 @@ namespace hotel.Controllers
             ViewBag.Message = "Your Single blog page.";
 
             return View(sbm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SingleBlog(CommentaireModel cm, int idArticle)
+        {
+            if (ModelState.IsValid)
+            {
+                UnitOfWork uow = new UnitOfWork(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
+                if(uow.AddComment(cm, SessionUtils.ConnectedUser.IdClient, idArticle))
+                {
+                    ViewBag.SuccessMessage = "Commentaire ajouté";
+                    return RedirectToAction("SingleBlog", "Home", new { idArticle = idArticle }); ;
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Commentaire non ajouté";
+                    return View();
+                } 
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Ecrire un message";
+                return View();
+            }
         }
     }
 }
