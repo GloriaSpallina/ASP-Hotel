@@ -29,7 +29,7 @@ namespace hotel.Models
             //Carte chambres
 
             // carte chambre
-            CarteRoomHome = uow.GetCardHotel();
+            CarteRoomHome = uow.GetCardRoom();
 
             // sercice Hotel
             ListeServices = uow.GetService();

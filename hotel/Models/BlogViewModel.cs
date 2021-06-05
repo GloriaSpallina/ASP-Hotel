@@ -64,6 +64,7 @@ namespace hotel.Models
             }
 
         }
+
         #region props
 
         public List<ArticleModel> ArticleBlog { get => _articleBlog; set => _articleBlog = value; }

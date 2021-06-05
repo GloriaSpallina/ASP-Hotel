@@ -18,13 +18,30 @@ namespace Hotel.Repositories
     
         public List<TypeChambreEntity> Get()
         {
-            string requete = @"SELECT * FROM V_Room";
+            string requete = @"SELECT dbo.TypeChambre.IdTypeChambre, dbo.TypeChambre.Nom AS NomCat, dbo.TypeChambre.Capacite, dbo.TypeChambre.Prix, dbo.PhotoTypeChambre.Photo
+                                FROM dbo.TypeChambre INNER JOIN
+                                      dbo.PhotoTypeChambre ON dbo.TypeChambre.IdTypeChambre = dbo.PhotoTypeChambre.IdTypeChambre";
+            return base.Get(requete);
+        }
+
+        public List<TypeChambreEntity> GetRoomFilter(string dateDeb, string dateFin, int nbPerson)
+        {
+            string requete = @"EXECUTE sp_RecupChambreDispo '" + dateDeb + "', '" + dateFin + "', " + nbPerson;
+         
             return base.Get(requete);
         }
 
         public TypeChambreEntity GetOne(int PK)
         {
-            throw new NotImplementedException();
+            string requete = @"SELECT * FROM V_Room WHERE IdTypeChambre =" + PK;
+            return base.GetOne(PK, requete);
+        }
+
+        public List<TypeChambreEntity> GetDetails(int id)
+        {
+            string requete = @"SELECT * FROM V_Room WHERE IdTypeChambre =" + id;
+
+            return base.Get(requete);
         }
 
         public bool Insert(TypeChambreEntity toInsert)

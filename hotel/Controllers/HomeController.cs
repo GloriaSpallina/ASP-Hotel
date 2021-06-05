@@ -93,13 +93,23 @@ namespace hotel.Controllers
             return View(bm);
         }
     
-        public ActionResult Rooms()
+        public ActionResult Rooms(string dateDeb = null, string dateFin= null, int nbPerson = 1)
         {
             RoomsViewModel rvm = new RoomsViewModel();
-            ViewBag.Message = "Your rooms page.";
+            rvm.FilterRoom(dateDeb, dateFin, nbPerson);
+            ViewBag.DateDb = dateDeb;
+            ViewBag.DateFin = dateFin;
 
             return View(rvm);
         }
+
+
+        public ActionResult RoomDetails(int idChambre)
+        {
+            RoomDetailsViewModel rdvm = new RoomDetailsViewModel(idChambre);
+            return View(rdvm);
+        }
+
         public ActionResult Services()
         {
             ServiceViewModel svm = new ServiceViewModel();

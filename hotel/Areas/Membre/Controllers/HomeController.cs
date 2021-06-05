@@ -40,20 +40,23 @@ namespace hotel.Areas.Membre.Controllers
         }
 
         [HttpGet]
-        public ActionResult Booking()
+        public ActionResult Booking(int idChambre, string dateDeb, string dateFin)
         {
             if (!SessionUtils.IsLogged) return RedirectToAction("Login", "Account", new { area = "" });
-            ReservationViewModel rvm = new ReservationViewModel();
-            return View(rvm);
+            ViewBag.DateDb = dateDeb;
+            ViewBag.DateFin = dateFin;
+            ViewBag.idChambre = idChambre;
+            //ReservationViewModel rvm = new ReservationViewModel();
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Booking(ReservationModel rm)
+        public ActionResult Booking(ReservationModel rm, int idChambre)
         {
             if (ModelState.IsValid)
             {
-                if (uow.AddReservation(rm, SessionUtils.ConnectedUser.IdClient))
+                if (uow.AddReservation(rm, SessionUtils.ConnectedUser.IdClient, idChambre))
                 {
                     return RedirectToAction("Index", "Home", new { area = "Membre" });
                 }

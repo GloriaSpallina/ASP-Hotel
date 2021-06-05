@@ -13,7 +13,7 @@
                     <div class="col-md-11 offset-xl-1 offset-lg-1 offset-md-1">
                         <div class="hero-caption">
                             <span>@ViewBag.Title</span>
-                            <h2>Our @ViewBag.Title</h2>
+                            <h2>@ViewBag.Title avaible</h2>
                         </div>
                     </div>
                 </div>
@@ -22,9 +22,54 @@
     </div>
     <!-- slider Area End-->
     <!-- Room Start -->
-    @{
-        Html.RenderPartial("~/Views/Shared/_cardRooms.cshtml", Model.ListRoomCard);
-    }
+
+    <section class="room-area r-padding1">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <!--font-back-tittle  -->
+                    <div class="font-back-tittle mb-45">
+                        <div class="archivment-front">
+                            <h3>Rooms Avaible</h3>
+                        </div>
+                        <h3 class="archivment-back">Rooms Avaible From @ViewBag.DateDb to @ViewBag.DateFin </h3>
+                    </div>
+                </div>
+            </div>
+            Date : 
+            <div class="row">
+                @foreach (hotel.Models.RoomCardModel item in Model.ListRoomCard)
+                {
+                    <div class="col-xl-4 col-lg-6 col-md-6">
+                        <!-- Single Room -->
+                        <div class="single-room mb-50">
+                            <div class="room-img">
+                                <a href="@Url.Action("RoomDetails", "Home", new { idChambre = item.IdChambre })"> <img src="/img/rooms/@item.PhotoChambre" alt=""></a>
+                            </div>
+                            <div class="room-caption">
+                                <h3>
+                                    <a href="@Url.Action("RoomDetails", "Home", new {idChambre = item.IdChambre})">@item.NomCategorie</a>
+                                </h3>
+                                <h5>Capacity : @item.Capacite</h5>
+
+                                <h5>N° : @item.NumeroChambre</h5>
+                                <div class="per-night">
+                                    <span><u>$</u>@item.Prix <span>/ par night</span></span>
+                                </div>
+                                <div class="room-btn pt-30">
+                                    <a href="@Url.Action("Booking","Membre/Home", new {idChambre = item.IdChambre, dateDeb = @ViewBag.DateDb, dateFin = @ViewBag.DateFin })" class="btn view-btn1">View more  <i class="ti-angle-right"></i> </a>
+                                </div>
+                            </div>
+                            ~/Membre/Home/Booking
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- Room End -->
     <!-- Gallery img Start-->
     @{

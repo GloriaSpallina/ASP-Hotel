@@ -1,4 +1,5 @@
-﻿@model hotel.Models.ReservationViewModel
+﻿@model Hotel.Models.ReservationModel
+
 
 @{
     ViewBag.Title = "Booking";
@@ -6,70 +7,72 @@
 }
 
 <h2>Booking</h2>
+@*@{ var cultureInfo = new System.Globalization.CultureInfo("us-US");
+    string sDateDb = ViewBag.DateDb;
+    DateTime cDateDb = DateTime.ParseExact(sDateDb, "dd/MM/yyyy", cultureInfo);
+    string sDateFin = ViewBag.DateFin;
+    DateTime cDateFin = DateTime.ParseExact(sDateFin, "dd/MM/yyyy", cultureInfo);
+}*@
 
-@using (Html.BeginForm()) 
-{
+<form method="post">
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>ReservationModel</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.NReservation.Datedebut, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NReservation.Datedebut, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NReservation.Datedebut, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>ReservationModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Datedebut, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Datedebut, new { htmlAttributes = new { @Value = ViewBag.DateDb, @class = "form-control" } })
+                @*@Html.ValidationMessageFor(model => model.Datedebut, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Datefin, htmlAttributes: new { @Value = ViewBag.DateFin, @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Datefin, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.ValidationMessageFor(model => model.Datefin, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+        <!--//int toto = 1;-->
+        <!--foreach (hotel.Models.RoomCardModel item in Model.ListeChambre)
+        {
+
+            <select name="IdChambre">
+                <option value="1">item.NomCategorie au prix de item.Prix</option>
+            </select>
+
+            //toto++;
+        }-->
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombreadulte, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombreadulte, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombreadulte, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombreenfant, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombreenfant, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombreenfant, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
+</form>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.NReservation.Datefin, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NReservation.Datefin, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NReservation.Datefin, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <!--//int toto = 1;-->
-    <!--foreach (hotel.Models.RoomCardModel item in Model.ListeChambre)
-    {
-
-        <select name="IdChambre">
-            <option value="1">item.NomCategorie au prix de item.Prix</option>
-        </select>
-
-        //toto++;
-    }-->
-
-
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.NReservation.Nombreadulte, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NReservation.Nombreadulte, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NReservation.Nombreadulte, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.NReservation.Nombreenfant, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NReservation.Nombreenfant, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NReservation.Nombreenfant, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

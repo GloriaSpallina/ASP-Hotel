@@ -54,14 +54,14 @@
 
             @foreach (Hotel.Models.ReservationModel item in Model.Rm)
             {
-                if (item.Login == hotel.Infra.SessionUtils.ConnectedUser.Login)
+                if (item.IdClient == hotel.Infra.SessionUtils.ConnectedUser.IdClient)
                 {
                     <div class="card">
-                        <h5 class="card-header">@item.Typechambre du @item.Datedebut  au @item.Datefin .</h5>
+                        <h5 class="card-header">@item.NomTypeChambre du @item.Datedebut  au @item.Datefin .</h5>
                         <div class="card-body">
-                            <img src="~/img/gallery/@item.Photochambre" />
+                            <img src="~/img/gallery/@item.PhotoTypeChambre" />
 
-                            <p class="card-text">Chambre réservée le @item.Datereservation pour @item.Nombreadulte adulte(s) et @item.Nombreenfant enfant(s).</p>
+                            <p class="card-text">Chambre réservée le @item.DateReservation pour @item.Nombreadulte adulte(s) et @item.Nombreenfant enfant(s).</p>
                             <p>Prix de la chambre : @item.Prix</p>
 
                         </div>

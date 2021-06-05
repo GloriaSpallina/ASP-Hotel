@@ -64,25 +64,77 @@ namespace Hotel.Repositories
             cam.Photo = che.Photo;
             return cam;
         }
-
+         
         public List<ServiceHotelModel> GetService()
         {
             return _serviceRepo.Get().Select(s => new ServiceHotelModel() { Photo = s.PhotoService, CourteDescription = s.DescriptionCourte, LongueDescription = s.DescriptionLongue, NomService = s.NomService, OrientationPhoto = s.Orientation }).ToList();
         }
 
-        public List<RoomCardModel> GetCardHotel()
+        public List<RoomCardModel> GetCardRoom()
         {
 
-            return _typeChambreRepo.Get()
+            return ((TypeChambreRepository)_typeChambreRepo).Get()
                 .Select(item =>
                 new RoomCardModel()
                 {
-                    NomCategorie = item.Nom,
+
+                    IdChambre = item.IdChambre,
+                    IdTypeChambre = item.IdTypeChambre,
+                    NomCategorie = item.NomCat,
+                    NomChambre = item.NomChambre,
+                    Capacite = item.Capacite,
+                    Prix = item.Prix,
+                    PhotoChambre = item.Photo
+                }
+                ).ToList();
+        }
+
+        public List<RoomCardModel> GetChambreDispo(string dateDeb = null, string dateFin = null, int nbPerson=1)
+        {
+
+            return ((TypeChambreRepository)_typeChambreRepo).GetRoomFilter(dateDeb, dateFin, nbPerson)
+                .Select(item =>
+                new RoomCardModel()
+                {
+                    
+                    IdChambre = item.IdChambre,
+                    NomCategorie = item.NomCat,
+                    NomChambre = item.NomChambre,
+                    Capacite = item.Capacite,
+                    NumeroChambre = item.NumeroChambre,
                     Prix = item.Prix,
                     PhotoChambre = item.Photo
                 }
                 ).ToList();
         } 
+
+
+        public List<RoomCardModel> GetRoomDetails(int idChambre)
+        {
+
+            return ((TypeChambreRepository)_typeChambreRepo).GetDetails(idChambre)
+                .Select(item =>
+                new RoomCardModel()
+                {
+
+                    IdChambre = item.IdChambre,
+                    IdTypeChambre = item.IdTypeChambre,
+                    NomCategorie = item.NomCat,
+                    NomChambre = item.NomChambre,
+                    Capacite = item.Capacite,
+                    NumeroChambre = item.NumeroChambre,
+                    Prix = item.Prix,
+                    PhotoChambre = item.Photo,
+                    DescCourte = item.DescriptionCourte,
+                    DescLongue = item.DescriptionLongue,
+                    Equipement = item.EquipementNom
+                    
+                }
+                ).ToList();
+          
+            
+        }
+
         #endregion
 
         #region Blog
@@ -312,29 +364,30 @@ namespace Hotel.Repositories
                 {
                     IdClient = item.IdClient,
                     Login = item.Login,
-                    Datereservation = item.DateReservation,
+                    DateReservation = item.DateReservation,
                     Datedebut = item.DateDebutSejour,
                     Datefin = item.DateFinSejour,
                     Nombreadulte = item.NombreAdulte,
                     Nombreenfant = item.NombreEnfant,
-                    Typechambre = item.NomTypeChambre,
-                    Photochambre = item.PhotoTypeChambre,
-                    Prix = item.Prix
+                    NomTypeChambre = item.NomTypeChambre,
+                    PhotoTypeChambre = item.PhotoTypeChambre,
+                    Prix = item.Prix,
+                    Capacite = item.Capacite
 
                 }
                 ).ToList();
         }
 
-        public bool AddReservation(ReservationModel rm, int idClient)
+        public bool AddReservation(ReservationModel rm, int idClient, int idChambre)
         {
             ReservationEntity re = new ReservationEntity()
             {
                 DateDebutSejour = rm.Datedebut,
                 DateFinSejour = rm.Datefin,
                 NombreAdulte = rm.Nombreadulte,
-                NombreEnfant = rm.Nombreadulte,
-                IdChambre = 2, // à changer.
-                IdClient = rm.IdClient,
+                NombreEnfant = rm.Nombreenfant,
+                IdChambre = idChambre,
+                IdClient = idClient,
                 Statut = true,
                 AssuranceAnnulation = true
                 

@@ -138,6 +138,7 @@
     <Compile Include="Models\LoginRegisterModel.cs" />
     <Compile Include="Models\MembreViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
+    <Compile Include="Models\RoomDetailsViewModel.cs" />
     <Compile Include="Models\RoomsViewModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\SingleBlogViewModel.cs" />
@@ -351,6 +352,9 @@
     <Content Include="Views\Shared\_paginate.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_searchRoom.cshtml" />
+    <Content Include="Views\Home\RoomDetails.cshtml" />
+    <Content Include="Views\Home\Booking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

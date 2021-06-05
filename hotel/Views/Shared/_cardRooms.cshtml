@@ -18,10 +18,10 @@
                     <!-- Single Room -->
                     <div class="single-room mb-50">
                         <div class="room-img">
-                            <a href="/Home/Rooms"> <img src="/img/rooms/@item.PhotoChambre" alt=""></a>
-                        </div>
+                            <a href="@Url.Action("RoomDetails", "Home", new {idChambre = item.IdTypeChambre})"> <img src="/img/rooms/@item.PhotoChambre" alt=""></a>
+                        </div> id : @item.IdTypeChambre
                         <div class="room-caption">
-                            <h3><a href="/Home/Rooms">@item.NomCategorie</a></h3>
+                            <h3><a href="@Url.Action("RoomDetails", "Home", new {idChambre = item.IdTypeChambre})">@item.NomCategorie</a></h3>
                             <div class="per-night">
                                 <span><u>$</u>@item.Prix <span>/ par night</span></span>
                             </div>

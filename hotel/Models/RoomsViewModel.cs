@@ -22,12 +22,16 @@ namespace hotel.Models
 
         public RoomsViewModel()
         {
-            // carte chambre
-            ListRoomCard = uow.GetCardHotel();
-
+           
             // slider photos chambres
 
             RoomSlider = uow.GetPhotoChambre();
+        }
+
+        // carte chambre
+        public void FilterRoom(string dateFin, string dateDeb, int nbPerson)
+        {
+            ListRoomCard = uow.GetChambreDispo(dateDeb, dateFin, nbPerson);
         }
     }
 }

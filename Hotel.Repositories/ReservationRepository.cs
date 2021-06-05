@@ -40,8 +40,26 @@ namespace Hotel.Repositories
 
         public bool Insert(ReservationEntity toInsert)
         {
-            string requete = @"INSERT INTO Reservation (IdClient, IdChambre, DateDebutSejour, DateFinSejour, NombreAdulte, NombreEnfant, Statut, AssuranceAnnulation, DateReservation) 
-                            VALUES (@IdClient, @IdChambre, @DateDebutSejour, @DateFinSejour, @NombreAdulte, @NombreEnfant, @Status, @AssureanceAnnulation, GetDate())";
+            string requete = @"INSERT INTO [dbo].[Reservation]
+           ([DateDebutSejour]
+           ,[DateFinSejour]
+           ,[NombreAdulte]
+           ,[NombreEnfant]
+           ,[Statut]
+           ,[AssuranceAnnulation]
+           ,[IdChambre]
+           ,[IdClient]
+           ,[DateReservation])
+                            VALUES
+            (@DateDebutSejour,
+            @DateFinSejour,
+            @NombreAdulte,
+            @NombreEnfant,
+            @Statut,
+            @AssuranceAnnulation,
+            @IdChambre,
+            @IdClient,
+            GETDATE())";
             return base.Insert(toInsert, requete);
         }
 

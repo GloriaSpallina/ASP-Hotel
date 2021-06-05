@@ -1,0 +1,100 @@
+﻿@model hotel.Models.RoomDetailsViewModel
+@{
+    ViewBag.Title = "Room Details";
+}
+
+<main>
+
+    <!-- slider Area Start-->
+    <div class="slider-area">
+        <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="/img/hero/roomspage_hero.jpg">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-11 offset-xl-1 offset-lg-1 offset-md-1">
+                        <div class="hero-caption">
+                            <span>@ViewBag.Title</span>
+                            <h2>@ViewBag.Title</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+    <!-- Room Start -->
+    From @ViewBag.DateDb to @ViewBag.DateFin
+    <section class="room-area r-padding1">
+        @{ int sous = 0;}
+        @if (Model.RoomInfo.Count() > 1)
+        {
+            sous = Model.RoomInfo.Count() - 1;
+
+        }
+
+        @for (var i = 0; i < Model.RoomInfo.Count() - sous; i++)
+        {<div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <!--font-back-tittle  -->
+                        <div class="font-back-tittle mb-45">
+                            <div class="archivment-front">
+                                <h3>Room @Model.RoomInfo[i].NomCategorie details</h3>
+                            </div>
+                            <h3 class="archivment-back">@Model.RoomInfo[i].NomCategorie</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="customer-img mb-120">
+                            <img src="~/img/rooms/@Model.RoomInfo[i].PhotoChambre" class="customar-img1" alt="">
+                            <div class="service-experience heartbeat">
+                                <h3>@Model.RoomInfo[i].Prix €/ nuit</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xl-5 col-lg-6">
+                        <div class="customer-caption">
+                            <span>About this room</span>
+                            <h2>@Model.RoomInfo[i].NomCategorie</h2>
+                            <div class="caption-details">
+                                <p class="pera-dtails">@Model.RoomInfo[i].DescCourte</p>
+                                <p style="margin-bottom: 10px;">
+                                    @Model.RoomInfo[i].DescLongue Nos Chambres @Model.RoomInfo[i].NomCategorie peuvent héberger jusqu'à @Model.RoomInfo[i].Capacite personnes.
+                                <p style="margin-bottom: 10px;">Equipements :</p>
+                                <ul>
+
+                                    @for (var j = 0; j < Model.RoomInfo.Count(); j++)
+                                    {
+                                        <li style="list-style: inside; color: #888888; margin-left:25px">@Model.RoomInfo[j].Equipement</li>
+
+                                    }
+
+                                </ul>
+                                </p>
+
+
+
+                                <a href="#" class="btn more-btn1">Book <i class="ti-angle-right"></i> </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+
+
+
+    </section>
+
+
+
+
+
+</main>
+
